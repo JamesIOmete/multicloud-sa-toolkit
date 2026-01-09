@@ -36,9 +36,9 @@
                 },
                 "StringLike": {
                   "token.actions.githubusercontent.com:sub": [
-                    "repo:JamesIOmete/multicloud-github-oidc-bootstrap:ref:refs/heads/master",
-                    "repo:JamesIOmete/multicloud-github-oidc-bootstrap:ref:refs/heads/main",
-                    "repo:JamesIOmete/multicloud-github-oidc-bootstrap:pull_request"
+                    "repo:JamesIOmete/multicloud-sa-toolkit:ref:refs/heads/master",
+                    "repo:JamesIOmete/multicloud-sa-toolkit:ref:refs/heads/main",
+                    "repo:JamesIOmete/multicloud-sa-toolkit:pull_request"
                   ]
                 }
               }
