@@ -1,34 +1,32 @@
 # Multi-Cloud SA Toolkit (Terraform)
 
-A practical, use-case-driven toolkit for multi-cloud Solution Architects (AWS, Azure, GCP).
-Focus areas: automation bootstrap, environment discovery, monitoring baselines, and repeatable patterns that are easy to fork and run.
+A practical, use-case-driven toolkit for multi-cloud Solution Architects (AWS / Azure / GCP).  
+Focus: identity bootstrap for automation, environment discovery, monitoring baselines, and repeatable patterns that are easy to fork and run.
 
 ## Use cases
-- UC05 - Identity bootstrap for automation (GitHub Actions OIDC to cloud)
-	- AWS: implemented and validated
-	- Azure: implementation present, validation pending
-	- GCP: implementation present, validation pending
-- UC02 - Environment inventory and auto-documentation
-	- AWS: implemented and validated
-	- Azure: planned
-	- GCP: planned
+- **UC05 — Identity bootstrap for automation (GitHub Actions OIDC → Cloud)**
+  - AWS ✅ implemented + validated
+  - Azure 🧱 implemented (validation pending)
+  - GCP 🧱 implemented (validation pending)
 
-See docs/USE_CASES.md for the full list.
+- **UC02 — Environment inventory + auto-documentation**
+  - AWS ✅ implemented + validated
+  - Azure 🔜
+  - GCP 🔜
+
+See: `docs/USE_CASES.md`
 
 ## Repo layout
-- docs — decisions, prerequisites, roadmap, and use-case index
-- use-cases/<number>-<name> — per-use-case implementations and documentation
-- backend — backend configuration templates (some files are local-only)
-- .github/workflows — CI workflows and runnable automation
+- `docs/` — prerequisites, roadmap, decisions, and use-case index
+- `use-cases/` — per-use-case implementations + per-cloud docs + sample outputs
+- `.github/workflows/` — CI and runnable workflows (smoke tests, inventory runs)
 
 ## Quick start
-1. Review prerequisites in docs/PREREQS.md.
-2. Start with UC05 (OIDC bootstrap) to create the GitHub Actions trust.
-3. Run UC02 (inventory) once OIDC access is in place.
+1. Read prerequisites: `docs/PREREQS.md`
+2. Start with UC05 (OIDC bootstrap), then run UC02 (inventory)
 
 ## Security posture (recommended)
-- CI and automation use GitHub OIDC, avoiding long-lived cloud keys in GitHub.
-- Local Terraform applies use dedicated cloud profiles only when required for IAM or backend changes.
+- CI/CD uses GitHub OIDC (no long-lived cloud keys stored in GitHub).
+- Local Terraform applies use a dedicated cloud profile only when needed.
 
 License: MIT
-

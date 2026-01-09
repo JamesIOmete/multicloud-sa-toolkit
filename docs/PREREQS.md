@@ -1,30 +1,45 @@
-# Cloud prerequisites (to be filled)
+# Prerequisites
 
-## AWS
-- Auth method: SSO or access keys locally; GitHub Actions via OIDC role
+This repo is a **use-case-driven Terraform toolkit** for multi-cloud Solution Architect work (AWS / Azure / GCP).
 
-## Azure
-- `az login`, subscription selected; GitHub Actions via federated creds
+Examples use **us-west-2**; change regions as needed.
 
-## GCP
-- `gcloud auth application-default login`; GitHub Actions via Workload Identity Federation
+## Required tooling (local dev)
+- **Terraform** (v1.6+ recommended) and the relevant providers
+- **Git**
+- **GitHub CLI (`gh`)** (for repo + Actions workflow checks)
+- Cloud CLIs (as you implement each cloud):
+  - **AWS CLI v2** (`aws`)
+  - **Azure CLI** (`az`) — for Azure use cases
+  - **Google Cloud CLI** (`gcloud`) — for GCP use cases
+- Optional but handy:
+  - `jq` (inspect JSON outputs)
+  - `make` (if you use the repo Makefile)
+  - `python3` (for output sanitization helpers, if/when added)
 
----
-
-## Recommended local AWS auth (for Terraform applies)
-
-For local Terraform operations that use an S3 backend, use an AWS CLI profile backed by ~/.aws/credentials:
-
-- Create or reuse a profile (example): james-terraform
-- Confirm it is key-based:
-
+Quick checks:
 ```bash
-aws configure list --profile james-terraform
+terraform version
+gh auth status
+aws --version
 ```
 
-Look for shared-credentials-file entries for access_key and secret_key.
+## Git hygiene (strongly recommended)
+Do **not** commit:
+- `terraform.tfstate*`
+- `.terraform/`
+- local backend config files that contain real bucket names (example: `backend/*.hcl`)
 
-Run Terraform with:
+## Authentication model (recommended)
+Use **different auth modes** for CI vs local work:
+
+### CI (GitHub Actions)
+- Use **GitHub Actions OIDC** to assume a cloud role.
+- Do **not** store long-lived cloud access keys as GitHub secrets.
+
+### Local Terraform apply (when you must run Terraform locally)
+- Use a dedicated CLI profile backed by `~/.aws/credentials` for AWS.
+- Set region + disable IMDS to avoid confusing credential resolution:
 
 ```bash
 export AWS_PROFILE=james-terraform
@@ -32,6 +47,14 @@ export AWS_REGION=us-west-2
 export AWS_DEFAULT_REGION=us-west-2
 export AWS_SDK_LOAD_CONFIG=1
 export AWS_EC2_METADATA_DISABLED=true
+
+aws sts get-caller-identity
 ```
 
-CI (GitHub Actions) should use OIDC (no long-lived keys).
+## Remote state prerequisites (Terraform backends)
+Some stacks use a remote backend (AWS S3, etc.). In those cases:
+
+- The backend storage **must already exist** (e.g., S3 bucket for AWS backends).
+- Each stack should use a **unique state key** (path) to avoid collisions.
+- Keep backend config files **local** when they contain real resource names.
+
