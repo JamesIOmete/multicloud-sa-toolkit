@@ -1,0 +1,35 @@
+name: uc02-aws-inventory
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    env:
+      AWS_REGION: us-west-2
+      TARGET_ROLE_NAME: github-terraform-oidc
+      OUT_DIR: out
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_OIDC_ROLE_ARN }}
+          aws-region: us-west-2
+
+      - name: Generate inventory
+        run: bash use-cases/02-inventory-auto-doc/aws/scripts/discover.sh
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: uc02-aws-inventory
+          path: |
+            out/inventory.json
+            out/SUMMARY.md
