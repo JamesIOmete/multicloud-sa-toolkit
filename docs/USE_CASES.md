@@ -1,24 +1,19 @@
-# Multi-cloud SA Toolkit — Use Cases
+# Multi-cloud SA Toolkit - Use Cases
 
-## 1) Landing Zone Lite baseline (guardrails + logging + cost controls)
-Goal: Minimum viable governance for every new account/subscription/project.
-Deliverables: use-cases/01-landing-zone-lite/{aws,azure,gcp}
-Outputs: baseline_summary.md, logging_endpoints, budget_alerts, enabled_policies
+## UC05 - Identity bootstrap for automation (GitHub Actions OIDC to cloud)
+- Goal: enable keyless Terraform automation from GitHub Actions into each cloud.
+- Status: AWS implemented; Azure and GCP implementations present, validation pending.
+- Docs: use-cases/05-identity-bootstrap-automation/
 
-## 2) Environment inventory + auto-documentation (“what’s here and how is it wired?”)
-Goal: Map accounts/projects, networks, ingress/egress, key services, IAM boundaries, monitoring coverage.
-Deliverables: use-cases/02-inventory-auto-doc/{aws,azure,gcp}
-Outputs: inventory.json, SUMMARY.md
+## UC02 - Environment inventory and auto-documentation ("what is here and how is it wired?")
+- Goal: map accounts, networks, ingress or egress, key services, IAM boundaries, and monitoring coverage.
+- Status: AWS implementation live; Azure and GCP planned.
+- Doc entry point: use-cases/02-inventory-auto-doc/aws/docs/README.md
+- Sample output (sanitized):
+  - use-cases/02-inventory-auto-doc/aws/sample-output/SUMMARY.sample.md
+  - use-cases/02-inventory-auto-doc/aws/sample-output/inventory.sample.json
 
-## 3) Monitoring & alerting starter pack (golden signals + cloud-native alerts)
-Goal: Standardize alerting (latency, errors, saturation, availability) + cost anomaly alerts.
-Deliverables: use-cases/03-monitoring-alerting-pack/{aws,azure,gcp}
-Outputs: coverage report
-
-## 4) Ephemeral Sandbox Factory (repeatable low-cost environments)
-Goal: Short-lived sandboxes for demos/PoCs/customer trials/incident reproduction.
-Deliverables: use-cases/04-ephemeral-sandbox-factory/{aws,azure,gcp}
-
-## 5) Identity bootstrap for automation (GitHub Actions → Cloud via OIDC, no long-lived keys)
-Goal: Let CI run Terraform safely without storing secrets.
-Deliverables: use-cases/05-identity-bootstrap-automation/{aws,azure,gcp}
+## Upcoming
+- UC01 - Landing Zone Lite baseline (guardrails, logging, cost controls)
+- UC03 - Monitoring and alerting starter pack (golden signals plus cost anomaly alerts)
+- UC04 - Ephemeral sandbox factory (repeatable low-cost environments)

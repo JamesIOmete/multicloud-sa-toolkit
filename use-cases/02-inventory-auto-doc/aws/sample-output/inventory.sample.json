@@ -1,0 +1,2182 @@
+{
+  "meta": {
+    "generated_at": "2026-01-09T06:50:34Z",
+    "region": "us-west-2"
+  },
+  "identity": {
+    "account_id": "<ACCOUNT_ID>",
+    "account_alias": "<ACCOUNT_ALIAS>",
+    "caller": {
+      "UserId": "AROAVVGYYJIU4K32KSGTW:GitHubActions",
+      "Account": "<ACCOUNT_ID>",
+      "Arn": "<ARN:56a0b2cae3>"
+    }
+  },
+  "iam": {
+    "discovery_role_name": "github-terraform-oidc",
+    "role": {
+      "Role": {
+        "Path": "/",
+        "RoleName": "github-terraform-oidc",
+        "RoleId": "AROAVVGYYJIU4K32KSGTW",
+        "Arn": "<ARN:8ff291a126>",
+        "CreateDate": "2026-01-04T20:41:31+00:00",
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Federated": "<ARN:c561fa3800>"
+              },
+              "Action": "sts:AssumeRoleWithWebIdentity",
+              "Condition": {
+                "StringEquals": {
+                  "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+                },
+                "StringLike": {
+                  "token.actions.githubusercontent.com:sub": [
+                    "repo:JamesIOmete/multicloud-github-oidc-bootstrap:ref:refs/heads/master",
+                    "repo:JamesIOmete/multicloud-github-oidc-bootstrap:ref:refs/heads/main",
+                    "repo:JamesIOmete/multicloud-github-oidc-bootstrap:pull_request"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "Description": "GitHub Actions OIDC role for Terraform",
+        "MaxSessionDuration": 3600,
+        "RoleLastUsed": {
+          "LastUsedDate": "2026-01-04T22:51:11+00:00",
+          "Region": "us-west-2"
+        }
+      }
+    },
+    "attached_policies": [
+      {
+        "PolicyName": "github-oidc-discovery-readonly",
+        "PolicyArn": "<ARN:122a95077a>"
+      }
+    ]
+  },
+  "network": {
+    "vpcs": [
+      {
+        "OwnerId": "<ACCOUNT_ID>",
+        "InstanceTenancy": "default",
+        "CidrBlockAssociationSet": [
+          {
+            "AssociationId": "vpc-cidr-assoc-f22b7b99",
+            "CidrBlock": "<REDACTED_CIDR>",
+            "CidrBlockState": {
+              "State": "associated"
+            }
+          }
+        ],
+        "IsDefault": true,
+        "BlockPublicAccessStates": {
+          "InternetGatewayBlockMode": "off"
+        },
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "State": "available",
+        "CidrBlock": "<REDACTED_CIDR>",
+        "DhcpOptionsId": "<AWS_ID:92fc8e5ef9>"
+      }
+    ],
+    "subnets": [
+      {
+        "AvailabilityZoneId": "<AZ_ID>",
+        "MapCustomerOwnedIpOnLaunch": false,
+        "OwnerId": "<ACCOUNT_ID>",
+        "AssignIpv6AddressOnCreation": false,
+        "Ipv6CidrBlockAssociationSet": [],
+        "SubnetArn": "<ARN:d3fb0686d3>",
+        "EnableDns64": false,
+        "Ipv6Native": false,
+        "PrivateDnsNameOptionsOnLaunch": {
+          "HostnameType": "ip-name",
+          "EnableResourceNameDnsARecord": false,
+          "EnableResourceNameDnsAAAARecord": false
+        },
+        "BlockPublicAccessStates": {
+          "InternetGatewayBlockMode": "off"
+        },
+        "SubnetId": "<AWS_ID:521b993911>",
+        "State": "available",
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "CidrBlock": "<REDACTED_CIDR>",
+        "AvailableIpAddressCount": 4086,
+        "AvailabilityZone": "us-west-2a",
+        "DefaultForAz": true,
+        "MapPublicIpOnLaunch": true
+      },
+      {
+        "AvailabilityZoneId": "<AZ_ID>",
+        "MapCustomerOwnedIpOnLaunch": false,
+        "OwnerId": "<ACCOUNT_ID>",
+        "AssignIpv6AddressOnCreation": false,
+        "Ipv6CidrBlockAssociationSet": [],
+        "SubnetArn": "<ARN:07506a8d3c>",
+        "EnableDns64": false,
+        "Ipv6Native": false,
+        "PrivateDnsNameOptionsOnLaunch": {
+          "HostnameType": "ip-name",
+          "EnableResourceNameDnsARecord": false,
+          "EnableResourceNameDnsAAAARecord": false
+        },
+        "BlockPublicAccessStates": {
+          "InternetGatewayBlockMode": "off"
+        },
+        "SubnetId": "<AWS_ID:2fc8fa36c7>",
+        "State": "available",
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "CidrBlock": "<REDACTED_CIDR>",
+        "AvailableIpAddressCount": 4091,
+        "AvailabilityZone": "us-west-2c",
+        "DefaultForAz": true,
+        "MapPublicIpOnLaunch": true
+      },
+      {
+        "AvailabilityZoneId": "<AZ_ID>",
+        "MapCustomerOwnedIpOnLaunch": false,
+        "OwnerId": "<ACCOUNT_ID>",
+        "AssignIpv6AddressOnCreation": false,
+        "Ipv6CidrBlockAssociationSet": [],
+        "SubnetArn": "<ARN:36ae5d2590>",
+        "EnableDns64": false,
+        "Ipv6Native": false,
+        "PrivateDnsNameOptionsOnLaunch": {
+          "HostnameType": "ip-name",
+          "EnableResourceNameDnsARecord": false,
+          "EnableResourceNameDnsAAAARecord": false
+        },
+        "BlockPublicAccessStates": {
+          "InternetGatewayBlockMode": "off"
+        },
+        "SubnetId": "<AWS_ID:a8ae05f848>",
+        "State": "available",
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "CidrBlock": "<REDACTED_CIDR>",
+        "AvailableIpAddressCount": 4090,
+        "AvailabilityZone": "us-west-2b",
+        "DefaultForAz": true,
+        "MapPublicIpOnLaunch": true
+      },
+      {
+        "AvailabilityZoneId": "<AZ_ID>",
+        "MapCustomerOwnedIpOnLaunch": false,
+        "OwnerId": "<ACCOUNT_ID>",
+        "AssignIpv6AddressOnCreation": false,
+        "Ipv6CidrBlockAssociationSet": [],
+        "SubnetArn": "<ARN:0ad5dd37dc>",
+        "EnableDns64": false,
+        "Ipv6Native": false,
+        "PrivateDnsNameOptionsOnLaunch": {
+          "HostnameType": "ip-name",
+          "EnableResourceNameDnsARecord": false,
+          "EnableResourceNameDnsAAAARecord": false
+        },
+        "BlockPublicAccessStates": {
+          "InternetGatewayBlockMode": "off"
+        },
+        "SubnetId": "<AWS_ID:fa9f3698af>",
+        "State": "available",
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "CidrBlock": "<REDACTED_CIDR>",
+        "AvailableIpAddressCount": 4091,
+        "AvailabilityZone": "us-west-2d",
+        "DefaultForAz": true,
+        "MapPublicIpOnLaunch": true
+      }
+    ],
+    "route_tables": [
+      {
+        "Associations": [
+          {
+            "Main": true,
+            "RouteTableAssociationId": "<AWS_ID:8d4e7eb93d>",
+            "RouteTableId": "<AWS_ID:b0b83515ba>",
+            "AssociationState": {
+              "State": "associated"
+            }
+          }
+        ],
+        "PropagatingVgws": [],
+        "RouteTableId": "<AWS_ID:b0b83515ba>",
+        "Routes": [
+          {
+            "DestinationCidrBlock": "<REDACTED_CIDR>",
+            "GatewayId": "local",
+            "Origin": "CreateRouteTable",
+            "State": "active"
+          },
+          {
+            "DestinationCidrBlock": "<REDACTED_CIDR>",
+            "GatewayId": "<AWS_ID:f23bdaa3b3>",
+            "Origin": "CreateRoute",
+            "State": "active"
+          }
+        ],
+        "Tags": [],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "OwnerId": "<ACCOUNT_ID>"
+      }
+    ],
+    "internet_gateways": [
+      {
+        "Attachments": [
+          {
+            "State": "available",
+            "VpcId": "<AWS_ID:bc1f040f04>"
+          }
+        ],
+        "InternetGatewayId": "<AWS_ID:f23bdaa3b3>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "Tags": []
+      }
+    ],
+    "nat_gateways": [],
+    "security_groups": [
+      {
+        "GroupId": "<AWS_ID:7f94827dff>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:b8aff39390>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "launch-wizard-6",
+        "Description": "launch-wizard-6 created 2021-03-03T11:59:54.403-09:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:ddfe5fcc96>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:07a8e8d2f2>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "adhere-gear-flight-api",
+        "Description": "adhere-gear-flight-api created 2021-02-08T13:06:40.276-09:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 80,
+            "ToPort": 80,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [
+              {
+                "CidrIpv6": "::/0"
+              }
+            ],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "Description": "",
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:a38887c882>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:afbaeb569f>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "launch-wizard-9",
+        "Description": "launch-wizard-9 created 2021-06-15T08:54:00.894-08:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:2f916d5967>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:646e6dacda>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "launch-wizard-14",
+        "Description": "launch-wizard-14 created 2021-10-14T12:59:36.401-08:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:35ffa5a0d5>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:5747b7dc33>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "demo-tracker-particle-sub-sg",
+        "Description": "demo-tracker-particle-sub-sg created on 2021-06-25T14:02:34.116-08:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 80,
+            "ToPort": 80,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [
+              {
+                "CidrIpv6": "::/0"
+              }
+            ],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [
+              {
+                "CidrIpv6": "::/0"
+              }
+            ],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:8273e7fb8e>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:b4a70f42f6>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "demo-tracker-particle-sg",
+        "Description": "demo-tracker-particle-sg created on 2021-06-25T10:56:36.025-08:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 80,
+            "ToPort": 80,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [
+              {
+                "CidrIpv6": "::/0"
+              }
+            ],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [
+              {
+                "CidrIpv6": "::/0"
+              }
+            ],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:0d0c65b8f9>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:dc09d600be>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "launch-wizard-11",
+        "Description": "launch-wizard-11 created 2021-06-25T10:44:20.479-08:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 8080,
+            "ToPort": 8080,
+            "UserIdGroupPairs": [
+              {
+                "UserId": "<ACCOUNT_ID>",
+                "GroupId": "<AWS_ID:35ffa5a0d5>"
+              }
+            ],
+            "IpRanges": [],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:94be72d1e5>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:2ebaf66308>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "launch-wizard-5",
+        "Description": "launch-wizard-5 created 2021-03-02T14:58:35.466-09:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 80,
+            "ToPort": 80,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 7272,
+            "ToPort": 7272,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "Description": "",
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:806a6c88c5>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:f2c0ca6b1b>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "aws-vs-toolkit-ec2group-1",
+        "Description": "Auto-created by the AWS Toolkit for Visual Studio",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 1433,
+            "ToPort": 1433,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:e26edbf654>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:dd7cc11183>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "launch-wizard-2",
+        "Description": "launch-wizard-2 created 2021-02-08T12:58:04.476-09:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 80,
+            "ToPort": 80,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "Description": "HTTP Web Traffic",
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [
+              {
+                "Description": "HTTP Web Traffic",
+                "CidrIpv6": "::/0"
+              }
+            ],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "Description": "SSH Login",
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:9c7545bc70>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:785e34e15b>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "launch-wizard-3",
+        "Description": "launch-wizard-3 created 2021-02-10T07:53:43.530-09:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 8080,
+            "ToPort": 8080,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [
+              {
+                "CidrIpv6": "::/0"
+              }
+            ],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "Description": "",
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 3000,
+            "ToPort": 3000,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:084a68b458>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:f86aee1354>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "launch-wizard-4",
+        "Description": "launch-wizard-4 created 2021-02-10T08:58:53.172-09:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 80,
+            "ToPort": 80,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [
+              {
+                "CidrIpv6": "::/0"
+              }
+            ],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 8080,
+            "ToPort": 8080,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "Description": "",
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 4200,
+            "ToPort": 4200,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:6071974e19>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:f429bef81d>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "adhere-gear-flight-api-sg",
+        "Description": "adhere-gear-flight-api-sg created 2021-02-08T13:19:12.057-09:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 80,
+            "ToPort": 80,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [
+              {
+                "CidrIpv6": "::/0"
+              }
+            ],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 8080,
+            "ToPort": 8080,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "Description": "",
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [
+              {
+                "CidrIpv6": "::/0"
+              }
+            ],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:aed2dfbb26>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:2d8f7ea4ae>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "demo-cio-particle-sub-sg",
+        "Description": "demo-cio-particle-sub-sg created on 2021-06-25T14:46:23.279-08:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 80,
+            "ToPort": 80,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [
+              {
+                "CidrIpv6": "::/0"
+              }
+            ],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [
+              {
+                "CidrIpv6": "::/0"
+              }
+            ],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:912b537c92>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:befb992c30>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "default",
+        "Description": "default VPC security group",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 0,
+            "ToPort": 65535,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "Description": "Allow all inbound",
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 5432,
+            "ToPort": 5432,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "Description": "Postgres",
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [
+              {
+                "Description": "Postgres",
+                "CidrIpv6": "::/0"
+              }
+            ],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:b4837e1517>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:b1f58bb043>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "launch-wizard-8",
+        "Description": "launch-wizard-8 created 2021-06-15T08:51:30.207-08:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 8080,
+            "ToPort": 8080,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:eb3a5ffdf5>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:4b5bdd8059>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "launch-wizard-1",
+        "Description": "launch-wizard-1 created 2021-01-14T15:21:14.312-08:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 80,
+            "ToPort": 80,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "Description": "Allow http traffic for apache",
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "Description": "SSH to the instance",
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:5020411897>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:66384b8854>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "launch-wizard-13",
+        "Description": "launch-wizard-13 created 2021-10-14T12:30:51.187-08:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:f55b7705db>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:44300a693b>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "launch-wizard-12",
+        "Description": "launch-wizard-12 created 2021-09-06T09:01:46.049-08:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:42cf3206ff>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:82b080cfa1>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "HttpsIOCascadia",
+        "Description": "HTTPS for io.cascadiaio.com",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:5944f938cc>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:55cb36ca48>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "launch-wizard-7",
+        "Description": "launch-wizard-7 created 2021-04-18T09:21:35.549-08:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 8080,
+            "ToPort": 8080,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      },
+      {
+        "GroupId": "<AWS_ID:86801243ae>",
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ],
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "SecurityGroupArn": "<ARN:b52344a18e>",
+        "OwnerId": "<ACCOUNT_ID>",
+        "GroupName": "launch-wizard-10",
+        "Description": "launch-wizard-10 created 2021-06-24T15:26:40.380-08:00",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 80,
+            "ToPort": 80,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 8080,
+            "ToPort": 8080,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 443,
+            "ToPort": 443,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "<REDACTED_CIDR>"
+              }
+            ],
+            "Ipv6Ranges": [],
+            "PrefixListIds": []
+          }
+        ]
+      }
+    ],
+    "elastic_ips": [
+      {
+        "AllocationId": "<AWS_ID:7098d82bb9>",
+        "AssociationId": "<AWS_ID:9a95066a8b>",
+        "Domain": "vpc",
+        "NetworkInterfaceId": "<AWS_ID:0d7550093a>",
+        "NetworkInterfaceOwnerId": "<ACCOUNT_ID>",
+        "PrivateIpAddress": "<REDACTED>",
+        "PublicIpv4Pool": "amazon",
+        "NetworkBorderGroup": "us-west-2",
+        "ServiceManaged": "alb",
+        "PublicIp": "<REDACTED>"
+      }
+    ],
+    "vpc_peering_connections": [],
+    "transit_gateways": [],
+    "transit_gateway_attachments": [],
+    "vpc_endpoints": []
+  },
+  "compute": {
+    "ec2_instances": [
+      {
+        "Architecture": "x86_64",
+        "BlockDeviceMappings": [
+          {
+            "DeviceName": "/dev/sda1",
+            "Ebs": {
+              "AttachTime": "2021-02-10T17:59:23+00:00",
+              "DeleteOnTermination": true,
+              "Status": "attached",
+              "VolumeId": "<AWS_ID:280373e19a>"
+            }
+          }
+        ],
+        "ClientToken": "",
+        "EbsOptimized": false,
+        "EnaSupport": true,
+        "Hypervisor": "xen",
+        "NetworkInterfaces": [
+          {
+            "Attachment": {
+              "AttachTime": "2021-02-10T17:59:22+00:00",
+              "AttachmentId": "<AWS_ID:0bf55d46ce>",
+              "DeleteOnTermination": true,
+              "DeviceIndex": 0,
+              "Status": "attached",
+              "NetworkCardIndex": 0
+            },
+            "Description": "",
+            "Groups": [
+              {
+                "GroupId": "<AWS_ID:084a68b458>",
+                "GroupName": "launch-wizard-4"
+              }
+            ],
+            "Ipv6Addresses": [],
+            "MacAddress": "02:3a:c8:cf:f8:e5",
+            "NetworkInterfaceId": "<AWS_ID:5f165f37d5>",
+            "OwnerId": "<ACCOUNT_ID>",
+            "PrivateDnsName": "<REDACTED>",
+            "PrivateIpAddress": "<REDACTED>",
+            "PrivateIpAddresses": [
+              {
+                "Primary": true,
+                "PrivateDnsName": "<REDACTED>",
+                "PrivateIpAddress": "<REDACTED>"
+              }
+            ],
+            "SourceDestCheck": true,
+            "Status": "in-use",
+            "SubnetId": "<AWS_ID:521b993911>",
+            "VpcId": "<AWS_ID:bc1f040f04>",
+            "InterfaceType": "interface",
+            "Operator": {
+              "Managed": false
+            }
+          }
+        ],
+        "RootDeviceName": "/dev/sda1",
+        "RootDeviceType": "ebs",
+        "SecurityGroups": [
+          {
+            "GroupId": "<AWS_ID:084a68b458>",
+            "GroupName": "launch-wizard-4"
+          }
+        ],
+        "SourceDestCheck": true,
+        "StateReason": {
+          "Code": "Client.UserInitiatedShutdown",
+          "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+        },
+        "Tags": [
+          {
+            "Key": "Customer",
+            "Value": "<REDACTED_TAG_VALUE>"
+          },
+          {
+            "Key": "Name",
+            "Value": "<REDACTED_TAG_VALUE>"
+          }
+        ],
+        "VirtualizationType": "hvm",
+        "CpuOptions": {
+          "CoreCount": 1,
+          "ThreadsPerCore": 1
+        },
+        "CapacityReservationSpecification": {
+          "CapacityReservationPreference": "open"
+        },
+        "HibernationOptions": {
+          "Configured": false
+        },
+        "MetadataOptions": {
+          "State": "applied",
+          "HttpTokens": "optional",
+          "HttpPutResponseHopLimit": 1,
+          "HttpEndpoint": "enabled",
+          "HttpProtocolIpv6": "disabled"
+        },
+        "EnclaveOptions": {
+          "Enabled": false
+        },
+        "PlatformDetails": "Linux/UNIX",
+        "UsageOperation": "RunInstances",
+        "UsageOperationUpdateTime": "2021-02-10T17:59:22+00:00",
+        "PrivateDnsNameOptions": {},
+        "MaintenanceOptions": {
+          "AutoRecovery": "default",
+          "RebootMigration": "default"
+        },
+        "CurrentInstanceBootMode": "legacy-bios",
+        "NetworkPerformanceOptions": {
+          "BandwidthWeighting": "default"
+        },
+        "Operator": {
+          "Managed": false
+        },
+        "InstanceId": "<AWS_ID:d1042d8760>",
+        "ImageId": "<AWS_ID:fa779f1a19>",
+        "State": {
+          "Code": 80,
+          "Name": "stopped"
+        },
+        "PrivateDnsName": "<REDACTED>",
+        "PublicDnsName": "<REDACTED>",
+        "StateTransitionReason": "User initiated (2021-09-03 17:16:58 GMT)",
+        "KeyName": "<REDACTED_KEYNAME>",
+        "AmiLaunchIndex": 0,
+        "ProductCodes": [],
+        "InstanceType": "t2.micro",
+        "LaunchTime": "2021-02-10T17:59:22+00:00",
+        "Placement": {
+          "AvailabilityZoneId": "<AZ_ID>",
+          "GroupName": "",
+          "Tenancy": "default",
+          "AvailabilityZone": "us-west-2a"
+        },
+        "Monitoring": {
+          "State": "disabled"
+        },
+        "SubnetId": "<AWS_ID:521b993911>",
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "PrivateIpAddress": "<REDACTED>"
+      },
+      {
+        "Architecture": "x86_64",
+        "BlockDeviceMappings": [
+          {
+            "DeviceName": "/dev/xvda",
+            "Ebs": {
+              "AttachTime": "2021-02-08T22:20:24+00:00",
+              "DeleteOnTermination": true,
+              "Status": "attached",
+              "VolumeId": "<AWS_ID:f5c300856c>"
+            }
+          }
+        ],
+        "ClientToken": "",
+        "EbsOptimized": false,
+        "EnaSupport": true,
+        "Hypervisor": "xen",
+        "NetworkInterfaces": [
+          {
+            "Attachment": {
+              "AttachTime": "2021-02-08T22:20:23+00:00",
+              "AttachmentId": "<AWS_ID:9855147292>",
+              "DeleteOnTermination": true,
+              "DeviceIndex": 0,
+              "Status": "attached",
+              "NetworkCardIndex": 0
+            },
+            "Description": "",
+            "Groups": [
+              {
+                "GroupId": "<AWS_ID:6071974e19>",
+                "GroupName": "adhere-gear-flight-api-sg"
+              }
+            ],
+            "Ipv6Addresses": [],
+            "MacAddress": "06:82:b0:11:9e:17",
+            "NetworkInterfaceId": "<AWS_ID:6b233fac41>",
+            "OwnerId": "<ACCOUNT_ID>",
+            "PrivateDnsName": "<REDACTED>",
+            "PrivateIpAddress": "<REDACTED>",
+            "PrivateIpAddresses": [
+              {
+                "Primary": true,
+                "PrivateDnsName": "<REDACTED>",
+                "PrivateIpAddress": "<REDACTED>"
+              }
+            ],
+            "SourceDestCheck": true,
+            "Status": "in-use",
+            "SubnetId": "<AWS_ID:a8ae05f848>",
+            "VpcId": "<AWS_ID:bc1f040f04>",
+            "InterfaceType": "interface",
+            "Operator": {
+              "Managed": false
+            }
+          }
+        ],
+        "RootDeviceName": "/dev/xvda",
+        "RootDeviceType": "ebs",
+        "SecurityGroups": [
+          {
+            "GroupId": "<AWS_ID:6071974e19>",
+            "GroupName": "adhere-gear-flight-api-sg"
+          }
+        ],
+        "SourceDestCheck": true,
+        "StateReason": {
+          "Code": "Client.UserInitiatedShutdown",
+          "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "<REDACTED_TAG_VALUE>"
+          },
+          {
+            "Key": "Customer",
+            "Value": "<REDACTED_TAG_VALUE>"
+          }
+        ],
+        "VirtualizationType": "hvm",
+        "CpuOptions": {
+          "CoreCount": 1,
+          "ThreadsPerCore": 1
+        },
+        "CapacityReservationSpecification": {
+          "CapacityReservationPreference": "open"
+        },
+        "HibernationOptions": {
+          "Configured": false
+        },
+        "MetadataOptions": {
+          "State": "applied",
+          "HttpTokens": "optional",
+          "HttpPutResponseHopLimit": 1,
+          "HttpEndpoint": "enabled",
+          "HttpProtocolIpv6": "disabled"
+        },
+        "EnclaveOptions": {
+          "Enabled": false
+        },
+        "PlatformDetails": "Linux/UNIX",
+        "UsageOperation": "RunInstances",
+        "UsageOperationUpdateTime": "2021-02-08T22:20:23+00:00",
+        "PrivateDnsNameOptions": {},
+        "MaintenanceOptions": {
+          "AutoRecovery": "default",
+          "RebootMigration": "default"
+        },
+        "CurrentInstanceBootMode": "legacy-bios",
+        "NetworkPerformanceOptions": {
+          "BandwidthWeighting": "default"
+        },
+        "Operator": {
+          "Managed": false
+        },
+        "InstanceId": "<AWS_ID:88538fed02>",
+        "ImageId": "<AWS_ID:27895a02c7>",
+        "State": {
+          "Code": 80,
+          "Name": "stopped"
+        },
+        "PrivateDnsName": "<REDACTED>",
+        "PublicDnsName": "<REDACTED>",
+        "StateTransitionReason": "User initiated (2021-09-03 17:16:58 GMT)",
+        "KeyName": "<REDACTED_KEYNAME>",
+        "AmiLaunchIndex": 0,
+        "ProductCodes": [],
+        "InstanceType": "t2.micro",
+        "LaunchTime": "2021-02-08T22:20:23+00:00",
+        "Placement": {
+          "AvailabilityZoneId": "<AZ_ID>",
+          "GroupName": "",
+          "Tenancy": "default",
+          "AvailabilityZone": "us-west-2b"
+        },
+        "Monitoring": {
+          "State": "disabled"
+        },
+        "SubnetId": "<AWS_ID:a8ae05f848>",
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "PrivateIpAddress": "<REDACTED>"
+      },
+      {
+        "Architecture": "x86_64",
+        "BlockDeviceMappings": [
+          {
+            "DeviceName": "/dev/sda1",
+            "Ebs": {
+              "AttachTime": "2021-06-25T18:44:34+00:00",
+              "DeleteOnTermination": true,
+              "Status": "attached",
+              "VolumeId": "<AWS_ID:2e291c81dc>"
+            }
+          }
+        ],
+        "ClientToken": "",
+        "EbsOptimized": false,
+        "EnaSupport": true,
+        "Hypervisor": "xen",
+        "NetworkInterfaces": [
+          {
+            "Attachment": {
+              "AttachTime": "2021-06-25T18:44:33+00:00",
+              "AttachmentId": "<AWS_ID:97b1ef78f9>",
+              "DeleteOnTermination": true,
+              "DeviceIndex": 0,
+              "Status": "attached",
+              "NetworkCardIndex": 0
+            },
+            "Description": "",
+            "Groups": [
+              {
+                "GroupId": "<AWS_ID:0d0c65b8f9>",
+                "GroupName": "launch-wizard-11"
+              }
+            ],
+            "Ipv6Addresses": [],
+            "MacAddress": "02:6e:21:20:50:cd",
+            "NetworkInterfaceId": "<AWS_ID:1335a10300>",
+            "OwnerId": "<ACCOUNT_ID>",
+            "PrivateDnsName": "<REDACTED>",
+            "PrivateIpAddress": "<REDACTED>",
+            "PrivateIpAddresses": [
+              {
+                "Primary": true,
+                "PrivateDnsName": "<REDACTED>",
+                "PrivateIpAddress": "<REDACTED>"
+              }
+            ],
+            "SourceDestCheck": true,
+            "Status": "in-use",
+            "SubnetId": "<AWS_ID:521b993911>",
+            "VpcId": "<AWS_ID:bc1f040f04>",
+            "InterfaceType": "interface",
+            "Operator": {
+              "Managed": false
+            }
+          }
+        ],
+        "RootDeviceName": "/dev/sda1",
+        "RootDeviceType": "ebs",
+        "SecurityGroups": [
+          {
+            "GroupId": "<AWS_ID:0d0c65b8f9>",
+            "GroupName": "launch-wizard-11"
+          }
+        ],
+        "SourceDestCheck": true,
+        "StateReason": {
+          "Code": "Client.UserInitiatedShutdown",
+          "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "<REDACTED_TAG_VALUE>"
+          }
+        ],
+        "VirtualizationType": "hvm",
+        "CpuOptions": {
+          "CoreCount": 1,
+          "ThreadsPerCore": 1
+        },
+        "CapacityReservationSpecification": {
+          "CapacityReservationPreference": "open"
+        },
+        "HibernationOptions": {
+          "Configured": false
+        },
+        "MetadataOptions": {
+          "State": "applied",
+          "HttpTokens": "optional",
+          "HttpPutResponseHopLimit": 1,
+          "HttpEndpoint": "enabled",
+          "HttpProtocolIpv6": "disabled",
+          "InstanceMetadataTags": "disabled"
+        },
+        "EnclaveOptions": {
+          "Enabled": false
+        },
+        "PlatformDetails": "Linux/UNIX",
+        "UsageOperation": "RunInstances",
+        "UsageOperationUpdateTime": "2021-06-25T18:44:33+00:00",
+        "PrivateDnsNameOptions": {},
+        "MaintenanceOptions": {
+          "AutoRecovery": "default",
+          "RebootMigration": "default"
+        },
+        "CurrentInstanceBootMode": "legacy-bios",
+        "NetworkPerformanceOptions": {
+          "BandwidthWeighting": "default"
+        },
+        "Operator": {
+          "Managed": false
+        },
+        "InstanceId": "<AWS_ID:aa22050fdf>",
+        "ImageId": "<AWS_ID:9ebd82d1d7>",
+        "State": {
+          "Code": 80,
+          "Name": "stopped"
+        },
+        "PrivateDnsName": "<REDACTED>",
+        "PublicDnsName": "<REDACTED>",
+        "StateTransitionReason": "User initiated (2024-07-27 14:46:23 GMT)",
+        "KeyName": "<REDACTED_KEYNAME>",
+        "AmiLaunchIndex": 0,
+        "ProductCodes": [],
+        "InstanceType": "t2.micro",
+        "LaunchTime": "2021-06-25T18:44:33+00:00",
+        "Placement": {
+          "AvailabilityZoneId": "<AZ_ID>",
+          "GroupName": "",
+          "Tenancy": "default",
+          "AvailabilityZone": "us-west-2a"
+        },
+        "Monitoring": {
+          "State": "disabled"
+        },
+        "SubnetId": "<AWS_ID:521b993911>",
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "PrivateIpAddress": "<REDACTED>"
+      },
+      {
+        "Architecture": "x86_64",
+        "BlockDeviceMappings": [
+          {
+            "DeviceName": "/dev/xvda",
+            "Ebs": {
+              "AttachTime": "2021-09-06T17:02:09+00:00",
+              "DeleteOnTermination": true,
+              "Status": "attached",
+              "VolumeId": "<AWS_ID:8badf4f664>"
+            }
+          }
+        ],
+        "ClientToken": "",
+        "EbsOptimized": false,
+        "EnaSupport": true,
+        "Hypervisor": "xen",
+        "NetworkInterfaces": [
+          {
+            "Attachment": {
+              "AttachTime": "2021-09-06T17:02:08+00:00",
+              "AttachmentId": "<AWS_ID:e5b32d4bd6>",
+              "DeleteOnTermination": true,
+              "DeviceIndex": 0,
+              "Status": "attached",
+              "NetworkCardIndex": 0
+            },
+            "Description": "",
+            "Groups": [
+              {
+                "GroupId": "<AWS_ID:f55b7705db>",
+                "GroupName": "launch-wizard-12"
+              }
+            ],
+            "Ipv6Addresses": [],
+            "MacAddress": "02:9f:d2:18:1b:03",
+            "NetworkInterfaceId": "<AWS_ID:191648e2be>",
+            "OwnerId": "<ACCOUNT_ID>",
+            "PrivateDnsName": "<REDACTED>",
+            "PrivateIpAddress": "<REDACTED>",
+            "PrivateIpAddresses": [
+              {
+                "Primary": true,
+                "PrivateDnsName": "<REDACTED>",
+                "PrivateIpAddress": "<REDACTED>"
+              }
+            ],
+            "SourceDestCheck": true,
+            "Status": "in-use",
+            "SubnetId": "<AWS_ID:521b993911>",
+            "VpcId": "<AWS_ID:bc1f040f04>",
+            "InterfaceType": "interface",
+            "Operator": {
+              "Managed": false
+            }
+          }
+        ],
+        "RootDeviceName": "/dev/xvda",
+        "RootDeviceType": "ebs",
+        "SecurityGroups": [
+          {
+            "GroupId": "<AWS_ID:f55b7705db>",
+            "GroupName": "launch-wizard-12"
+          }
+        ],
+        "SourceDestCheck": true,
+        "StateReason": {
+          "Code": "Client.UserInitiatedShutdown",
+          "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "<REDACTED_TAG_VALUE>"
+          }
+        ],
+        "VirtualizationType": "hvm",
+        "CpuOptions": {
+          "CoreCount": 1,
+          "ThreadsPerCore": 1
+        },
+        "CapacityReservationSpecification": {
+          "CapacityReservationPreference": "open"
+        },
+        "HibernationOptions": {
+          "Configured": false
+        },
+        "MetadataOptions": {
+          "State": "applied",
+          "HttpTokens": "optional",
+          "HttpPutResponseHopLimit": 1,
+          "HttpEndpoint": "enabled",
+          "HttpProtocolIpv6": "disabled",
+          "InstanceMetadataTags": "disabled"
+        },
+        "EnclaveOptions": {
+          "Enabled": false
+        },
+        "PlatformDetails": "Linux/UNIX",
+        "UsageOperation": "RunInstances",
+        "UsageOperationUpdateTime": "2021-09-06T17:02:08+00:00",
+        "PrivateDnsNameOptions": {
+          "HostnameType": "ip-name",
+          "EnableResourceNameDnsARecord": false,
+          "EnableResourceNameDnsAAAARecord": false
+        },
+        "MaintenanceOptions": {
+          "AutoRecovery": "default",
+          "RebootMigration": "default"
+        },
+        "CurrentInstanceBootMode": "legacy-bios",
+        "NetworkPerformanceOptions": {
+          "BandwidthWeighting": "default"
+        },
+        "Operator": {
+          "Managed": false
+        },
+        "InstanceId": "<AWS_ID:d4a86c0d94>",
+        "ImageId": "<AWS_ID:c8e2270e63>",
+        "State": {
+          "Code": 80,
+          "Name": "stopped"
+        },
+        "PrivateDnsName": "<REDACTED>",
+        "PublicDnsName": "<REDACTED>",
+        "StateTransitionReason": "User initiated (2024-07-27 14:46:23 GMT)",
+        "KeyName": "<REDACTED_KEYNAME>",
+        "AmiLaunchIndex": 0,
+        "ProductCodes": [],
+        "InstanceType": "t2.micro",
+        "LaunchTime": "2021-09-06T17:02:08+00:00",
+        "Placement": {
+          "AvailabilityZoneId": "<AZ_ID>",
+          "GroupName": "",
+          "Tenancy": "default",
+          "AvailabilityZone": "us-west-2a"
+        },
+        "Monitoring": {
+          "State": "disabled"
+        },
+        "SubnetId": "<AWS_ID:521b993911>",
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "PrivateIpAddress": "<REDACTED>"
+      },
+      {
+        "Architecture": "x86_64",
+        "BlockDeviceMappings": [
+          {
+            "DeviceName": "/dev/sda1",
+            "Ebs": {
+              "AttachTime": "2021-10-14T20:59:49+00:00",
+              "DeleteOnTermination": true,
+              "Status": "attached",
+              "VolumeId": "<AWS_ID:13c2e30587>"
+            }
+          }
+        ],
+        "ClientToken": "",
+        "EbsOptimized": false,
+        "EnaSupport": true,
+        "Hypervisor": "xen",
+        "NetworkInterfaces": [
+          {
+            "Attachment": {
+              "AttachTime": "2021-10-14T20:59:48+00:00",
+              "AttachmentId": "<AWS_ID:e02c72d34e>",
+              "DeleteOnTermination": true,
+              "DeviceIndex": 0,
+              "Status": "attached",
+              "NetworkCardIndex": 0
+            },
+            "Description": "",
+            "Groups": [
+              {
+                "GroupId": "<AWS_ID:2f916d5967>",
+                "GroupName": "launch-wizard-14"
+              }
+            ],
+            "Ipv6Addresses": [],
+            "MacAddress": "02:93:8a:6d:e6:5f",
+            "NetworkInterfaceId": "<AWS_ID:ab7939ad08>",
+            "OwnerId": "<ACCOUNT_ID>",
+            "PrivateDnsName": "<REDACTED>",
+            "PrivateIpAddress": "<REDACTED>",
+            "PrivateIpAddresses": [
+              {
+                "Primary": true,
+                "PrivateDnsName": "<REDACTED>",
+                "PrivateIpAddress": "<REDACTED>"
+              }
+            ],
+            "SourceDestCheck": true,
+            "Status": "in-use",
+            "SubnetId": "<AWS_ID:521b993911>",
+            "VpcId": "<AWS_ID:bc1f040f04>",
+            "InterfaceType": "interface",
+            "Operator": {
+              "Managed": false
+            }
+          }
+        ],
+        "RootDeviceName": "/dev/sda1",
+        "RootDeviceType": "ebs",
+        "SecurityGroups": [
+          {
+            "GroupId": "<AWS_ID:2f916d5967>",
+            "GroupName": "launch-wizard-14"
+          }
+        ],
+        "SourceDestCheck": true,
+        "StateReason": {
+          "Code": "Client.UserInitiatedShutdown",
+          "Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "<REDACTED_TAG_VALUE>"
+          }
+        ],
+        "VirtualizationType": "hvm",
+        "CpuOptions": {
+          "CoreCount": 1,
+          "ThreadsPerCore": 1
+        },
+        "CapacityReservationSpecification": {
+          "CapacityReservationPreference": "open"
+        },
+        "HibernationOptions": {
+          "Configured": false
+        },
+        "MetadataOptions": {
+          "State": "applied",
+          "HttpTokens": "optional",
+          "HttpPutResponseHopLimit": 1,
+          "HttpEndpoint": "enabled",
+          "HttpProtocolIpv6": "disabled",
+          "InstanceMetadataTags": "disabled"
+        },
+        "EnclaveOptions": {
+          "Enabled": false
+        },
+        "PlatformDetails": "Linux/UNIX",
+        "UsageOperation": "RunInstances",
+        "UsageOperationUpdateTime": "2021-10-14T20:59:48+00:00",
+        "PrivateDnsNameOptions": {
+          "HostnameType": "ip-name",
+          "EnableResourceNameDnsARecord": false,
+          "EnableResourceNameDnsAAAARecord": false
+        },
+        "MaintenanceOptions": {
+          "AutoRecovery": "default",
+          "RebootMigration": "default"
+        },
+        "CurrentInstanceBootMode": "legacy-bios",
+        "NetworkPerformanceOptions": {
+          "BandwidthWeighting": "default"
+        },
+        "Operator": {
+          "Managed": false
+        },
+        "InstanceId": "<AWS_ID:8fd4909291>",
+        "ImageId": "<AWS_ID:9ebd82d1d7>",
+        "State": {
+          "Code": 80,
+          "Name": "stopped"
+        },
+        "PrivateDnsName": "<REDACTED>",
+        "PublicDnsName": "<REDACTED>",
+        "StateTransitionReason": "User initiated (2024-07-27 14:46:23 GMT)",
+        "KeyName": "<REDACTED_KEYNAME>",
+        "AmiLaunchIndex": 0,
+        "ProductCodes": [],
+        "InstanceType": "t2.micro",
+        "LaunchTime": "2021-10-14T20:59:48+00:00",
+        "Placement": {
+          "AvailabilityZoneId": "<AZ_ID>",
+          "GroupName": "",
+          "Tenancy": "default",
+          "AvailabilityZone": "us-west-2a"
+        },
+        "Monitoring": {
+          "State": "disabled"
+        },
+        "SubnetId": "<AWS_ID:521b993911>",
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "PrivateIpAddress": "<REDACTED>"
+      }
+    ],
+    "autoscaling_groups": [],
+    "load_balancers_v2": [
+      {
+        "LoadBalancerArn": "<ARN:602975490e>",
+        "DNSName": "demo-tracker-particle-sub-1517994814.us-west-2.elb.amazonaws.com",
+        "CanonicalHostedZoneId": "Z1H1FL5HABSF5",
+        "CreatedTime": "2021-06-28T14:59:12.850000+00:00",
+        "LoadBalancerName": "demo-tracker-particle-sub",
+        "Scheme": "internet-facing",
+        "VpcId": "<AWS_ID:bc1f040f04>",
+        "State": {
+          "Code": "active"
+        },
+        "Type": "application",
+        "AvailabilityZones": [
+          {
+            "ZoneName": "us-west-2b",
+            "SubnetId": "<AWS_ID:a8ae05f848>",
+            "LoadBalancerAddresses": []
+          },
+          {
+            "ZoneName": "us-west-2a",
+            "SubnetId": "<AWS_ID:521b993911>",
+            "LoadBalancerAddresses": []
+          }
+        ],
+        "SecurityGroups": [
+          "<AWS_ID:35ffa5a0d5>"
+        ],
+        "IpAddressType": "ipv4",
+        "EnablePrefixForIpv6SourceNat": "off"
+      }
+    ]
+  }
+}
