@@ -318,4 +318,4 @@ fi
 EOF
 
 chmod +x init-multicloud-oidc-repo.sh
-./init-multicloud-oidc-repo.sh "${1:-multicloud-github-oidc-bootstrap}"
+./init-multicloud-oidc-repo.sh "${1:-multicloud-sa-toolkit}"
