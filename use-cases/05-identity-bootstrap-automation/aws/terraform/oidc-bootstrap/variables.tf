@@ -11,7 +11,7 @@ variable "github_org" {
 
 variable "github_repo" {
   type        = string
-  description = "GitHub repo name (e.g., multicloud-github-oidc-bootstrap)."
+  description = "GitHub repo name (e.g., multicloud-sa-toolkit)."
 }
 
 variable "subject_claim_patterns" {

@@ -11,7 +11,7 @@ Across common text files (Terraform, YAML, Markdown, JSON).
 
 Usage:
   python3 tools/repo-rename/update_oidc_subjects.py \
-    --old-full JamesIOmete/multicloud-github-oidc-bootstrap \
+    --old-full JamesIOmete/multicloud-sa-toolkit \
     --new-full JamesIOmete/multicloud-sa-toolkit \
     --apply
 """
