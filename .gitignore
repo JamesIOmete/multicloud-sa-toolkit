@@ -25,3 +25,6 @@ terraform.rc
 
 # Local backend config
 backend/aws.hcl
+
+# Windows ADS cruft
+*:Zone.Identifier
