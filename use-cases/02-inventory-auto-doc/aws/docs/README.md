@@ -81,6 +81,16 @@ Artifact contains:
 - `use-cases/02-inventory-auto-doc/aws/sample-output/SUMMARY.sample.md`
 - `use-cases/02-inventory-auto-doc/aws/sample-output/inventory.sample.json`
 
+## When to run it
+- Trigger the workflow before architecture reviews, migration planning, or handoffs so you have current-state artifacts.
+- Run after significant infrastructure changes to keep an audit trail of what is live.
+- Use it for incident response prep or post-incident summaries so responders have fast context.
+
+## What you get
+- `inventory.json` for automation, diffing, or feeding other tools.
+- `SUMMARY.md` for stakeholders who prefer a narrated overview.
+- Evidence that the GitHub Actions OIDC role remains scoped to read-only operations (built into the Terraform policy).
+
 ---
 
 ## Recommended security/auth configuration

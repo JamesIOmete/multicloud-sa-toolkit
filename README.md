@@ -16,6 +16,8 @@ Focus: identity bootstrap for automation, environment discovery, monitoring base
 
 See: `docs/USE_CASES.md`
 
+Cloud navigation index: `docs/CLOUDS.md`
+
 ## Repo layout
 - `docs/` — prerequisites, roadmap, decisions, and use-case index
 - `use-cases/` — per-use-case implementations + per-cloud docs + sample outputs

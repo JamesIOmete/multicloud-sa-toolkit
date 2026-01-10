@@ -30,6 +30,7 @@ Sample output (sanitized):
 - `use-cases/02-inventory-auto-doc/aws/sample-output/inventory.sample.json`
 
 ## Upcoming
-- UC01 — Landing Zone Lite baseline (guardrails + logging + cost controls)
-- UC03 — Monitoring & alerting starter pack (golden signals + cost anomaly alerts)
-- UC04 — Ephemeral sandbox factory (repeatable low-cost environments)
+- UC01 - Landing Zone Lite baseline (guardrails + logging + cost controls)
+  - Doc draft: `use-cases/01-landing-zone-lite/README.md`
+- UC03 - Monitoring and alerting starter pack (golden signals plus cost anomaly alerts)
+- UC04 - Ephemeral sandbox factory (repeatable low-cost environments)
