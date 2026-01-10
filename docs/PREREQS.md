@@ -20,9 +20,35 @@ Examples use **us-west-2**; change regions as needed.
 Quick checks:
 ```bash
 terraform version
+git --version
+gh --version
 gh auth status
 aws --version
 ```
+
+## GitHub CLI (`gh`) — recommended
+
+This toolkit includes GitHub Actions workflows for “proof runs” (smoke tests, inventory/discovery, etc.). Using `gh` lets you run them from the command line (often preferable to the web UI).
+
+Install (Ubuntu / Debian):
+```bash
+sudo apt update
+sudo apt install -y gh
+```
+
+Authenticate:
+```bash
+gh auth login
+gh auth status
+```
+
+See: `docs/WORKFLOWS.md` for how to:
+- run workflows from CLI
+- validate success/failure
+- download and use artifacts (e.g., `SUMMARY.md`, `inventory.json`)
+
+
+
 
 ## Git hygiene (strongly recommended)
 Do **not** commit:
@@ -42,7 +68,7 @@ Use **different auth modes** for CI vs local work:
 - Set region + disable IMDS to avoid confusing credential resolution:
 
 ```bash
-export AWS_PROFILE=james-terraform
+export AWS_PROFILE=a-user-terraform
 export AWS_REGION=us-west-2
 export AWS_DEFAULT_REGION=us-west-2
 export AWS_SDK_LOAD_CONFIG=1
@@ -57,4 +83,3 @@ Some stacks use a remote backend (AWS S3, etc.). In those cases:
 - The backend storage **must already exist** (e.g., S3 bucket for AWS backends).
 - Each stack should use a **unique state key** (path) to avoid collisions.
 - Keep backend config files **local** when they contain real resource names.
-
