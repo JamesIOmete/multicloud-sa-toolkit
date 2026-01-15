@@ -28,7 +28,7 @@ Also ensure GitHub Actions has this repo variable set:
 If you use an S3 backend for this Terraform stack, the referenced S3 bucket **must already exist**.
 
 Recommended local backend config file (do not commit if it contains real bucket names):
-- `backend/aws-uc02-discovery.hcl`
+- `backend/aws-uc02-discovery.hcl.example` (copy to `backend/aws-uc02-discovery.hcl`, ignored by git)
 
 Example:
 ```hcl

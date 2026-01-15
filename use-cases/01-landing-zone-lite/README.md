@@ -19,6 +19,6 @@ A starter landing zone for AWS accounts that need guardrails, centralized loggin
 - Reduces the manual checklist needed during account onboarding.
 
 ## Implementations
-- AWS: planned (documents will live in `aws/docs/README.md` once modules are ready)
+- AWS: aws/docs/README.md
 - Azure: planned
 - GCP: planned

@@ -1,0 +1,6 @@
+bucket       = "multicloud-sa-toolkit-tfstate-<ACCOUNT_ID>"
+region       = "us-west-2"
+encrypt      = true
+key          = "use-cases/01-landing-zone-lite/aws/root/terraform.tfstate"
+use_lockfile = true
+profile      = "your-terraform-profile"

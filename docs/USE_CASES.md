@@ -29,8 +29,16 @@ Sample output (sanitized):
 - `use-cases/02-inventory-auto-doc/aws/sample-output/SUMMARY.sample.md`
 - `use-cases/02-inventory-auto-doc/aws/sample-output/inventory.sample.json`
 
+## UC01 — Landing Zone Lite baseline (guardrails + logging + cost controls)
+**Goal:** deliver a minimum governance baseline before workloads land in an account.
+
+- AWS: ✅
+- Azure: 🔜
+- GCP: 🔜
+
+Doc entry point (AWS):
+- `use-cases/01-landing-zone-lite/aws/docs/README.md`
+
 ## Upcoming
-- UC01 - Landing Zone Lite baseline (guardrails + logging + cost controls)
-  - Doc draft: `use-cases/01-landing-zone-lite/README.md`
 - UC03 - Monitoring and alerting starter pack (golden signals plus cost anomaly alerts)
 - UC04 - Ephemeral sandbox factory (repeatable low-cost environments)

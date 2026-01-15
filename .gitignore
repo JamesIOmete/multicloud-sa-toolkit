@@ -24,7 +24,8 @@ terraform.rc
 **/terraform.tfstate.*
 
 # Local backend config
-backend/aws.hcl
+backend/*.hcl
+!backend/*.hcl.example
 
 # Windows ADS cruft
 *:Zone.Identifier

@@ -4,6 +4,11 @@ A practical, use-case-driven toolkit for multi-cloud Solution Architects (AWS / 
 Focus: identity bootstrap for automation, environment discovery, monitoring baselines, and repeatable patterns that are easy to fork and run.
 
 ## Use cases
+- **UC01 — Landing Zone Lite baseline (guardrails + logging + cost controls)**
+  - AWS ✅ implemented + validated
+  - Azure 🔜
+  - GCP 🔜
+
 - **UC05 — Identity bootstrap for automation (GitHub Actions OIDC → Cloud)**
   - AWS ✅ implemented + validated
   - Azure 🧱 implemented (validation pending)
@@ -25,7 +30,9 @@ Cloud navigation index: `docs/CLOUDS.md`
 
 ## Quick start
 1. Read prerequisites: `docs/PREREQS.md`
-2. Start with UC05 (OIDC bootstrap), then run UC02 (inventory)
+2. Bootstrap GitHub Actions trust (UC05) so automation can run keyless.
+3. Apply the landing zone baseline (UC01) to enable guardrails, logging, and cost alerts.
+4. Capture current-state inventory (UC02) before further changes.
 
 ## Security posture (recommended)
 - CI/CD uses GitHub OIDC (no long-lived cloud keys stored in GitHub).
