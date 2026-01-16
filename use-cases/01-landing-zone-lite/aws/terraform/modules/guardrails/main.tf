@@ -187,8 +187,3 @@ resource "aws_organizations_policy_attachment" "guardrails" {
   policy_id = aws_organizations_policy.guardrails[0].id
   target_id = each.key
 }
-
-output "alerts_topic_arn" {
-  description = "ARN of the SNS topic used for guardrail alerts"
-  value       = try(aws_sns_topic.alerts[0].arn, null)
-}

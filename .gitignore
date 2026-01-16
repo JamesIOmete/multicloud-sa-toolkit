@@ -22,6 +22,7 @@ terraform.rc
 **/.terraform/
 **/terraform.tfstate
 **/terraform.tfstate.*
+use-cases/**/terraform/modules/**/.terraform.lock.hcl
 
 # Local backend config
 backend/*.hcl

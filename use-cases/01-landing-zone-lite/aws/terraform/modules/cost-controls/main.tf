@@ -7,7 +7,12 @@ locals {
 
   tags = merge(local.base_tags, var.tags)
 
-  sns_topic_name = "${var.name_prefix}-cost-alerts"
+  sns_topic_name  = "${var.name_prefix}-cost-alerts"
+  anomaly_use_sns = var.anomaly_frequency == "IMMEDIATE"
+  sns_publish_services = concat(
+    ["budgets.amazonaws.com"],
+    local.anomaly_use_sns ? ["costalerts.amazonaws.com"] : []
+  )
 }
 
 resource "aws_sns_topic" "alerts" {
@@ -28,21 +33,24 @@ resource "aws_sns_topic_policy" "alerts" {
 data "aws_iam_policy_document" "sns_publish" {
   count = var.enable_budgets || var.enable_anomaly_detection ? 1 : 0
 
-  statement {
-    sid    = "AllowBudgetAndAnomalyServices"
-    effect = "Allow"
+  dynamic "statement" {
+    for_each = toset(local.sns_publish_services)
 
-    principals {
-      type = "Service"
-      identifiers = [
-        "budgets.amazonaws.com",
-        "ce.amazonaws.com"
-      ]
+    content {
+      sid    = "AllowPublish-${replace(statement.value, ".", "-")}"
+      effect = "Allow"
+
+      principals {
+        type = "Service"
+        identifiers = [
+          statement.value,
+        ]
+      }
+
+      actions = ["sns:Publish"]
+
+      resources = [aws_sns_topic.alerts[0].arn]
     }
-
-    actions = ["sns:Publish"]
-
-    resources = [aws_sns_topic.alerts[0].arn]
   }
 }
 
@@ -66,10 +74,9 @@ resource "aws_budgets_budget" "monthly" {
   limit_amount = format("%.2f", var.monthly_budget_amount)
   limit_unit   = "USD"
   time_unit    = "MONTHLY"
-  cost_filters = {}
   cost_types {
     include_credit             = true
-    include_discounts          = true
+    include_discount           = true
     include_other_subscription = true
     include_recurring          = true
     include_refund             = true
@@ -84,15 +91,11 @@ resource "aws_budgets_budget" "monthly" {
   dynamic "notification" {
     for_each = var.budget_thresholds
     content {
-      comparison_operator = "GREATER_THAN"
-      threshold           = notification.value
-      threshold_type      = "PERCENTAGE"
-      notification_type   = "FORECASTED"
-
-      subscriber {
-        subscription_type = "SNS"
-        address           = aws_sns_topic.alerts[0].arn
-      }
+      comparison_operator       = "GREATER_THAN"
+      threshold                 = notification.value
+      threshold_type            = "PERCENTAGE"
+      notification_type         = "FORECASTED"
+      subscriber_sns_topic_arns = [aws_sns_topic.alerts[0].arn]
     }
   }
 
@@ -116,17 +119,22 @@ resource "aws_ce_anomaly_subscription" "account" {
 
   name      = "${var.name_prefix}-anomaly-subscription"
   frequency = var.anomaly_frequency
-  threshold = var.anomaly_threshold
 
   monitor_arn_list = [aws_ce_anomaly_monitor.account[0].arn]
 
-  subscriber {
-    type    = "SNS"
-    address = aws_sns_topic.alerts[0].arn
+  threshold_expression {
+    dimension {
+      key           = "ANOMALY_TOTAL_IMPACT_ABSOLUTE"
+      match_options = ["GREATER_THAN_OR_EQUAL"]
+      values        = [tostring(var.anomaly_threshold)]
+    }
   }
-}
 
-output "alerts_topic_arn" {
-  description = "ARN of the SNS topic receiving cost alerts"
-  value       = try(aws_sns_topic.alerts[0].arn, null)
+  dynamic "subscriber" {
+    for_each = local.anomaly_use_sns ? [aws_sns_topic.alerts[0].arn] : var.notification_emails
+    content {
+      type    = local.anomaly_use_sns ? "SNS" : "EMAIL"
+      address = subscriber.value
+    }
+  }
 }

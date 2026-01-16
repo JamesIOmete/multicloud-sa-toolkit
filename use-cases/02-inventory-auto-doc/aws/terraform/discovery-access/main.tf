@@ -15,8 +15,8 @@ resource "aws_iam_policy" "discovery" {
     Statement = [
       # Identity / account info
       {
-        Effect   = "Allow"
-        Action   = [
+        Effect = "Allow"
+        Action = [
           "sts:GetCallerIdentity",
           "iam:GetAccountSummary",
           "iam:ListAccountAliases",

@@ -15,10 +15,78 @@ data "aws_caller_identity" "current" {}
 
 data "aws_partition" "current" {}
 
+data "aws_region" "current" {}
+
+data "aws_iam_policy_document" "kms" {
+  statement {
+    sid    = "AllowAccountRoot"
+    effect = "Allow"
+
+    principals {
+      type        = "AWS"
+      identifiers = ["arn:${data.aws_partition.current.partition}:iam::${data.aws_caller_identity.current.account_id}:root"]
+    }
+
+    actions   = ["kms:*"]
+    resources = ["*"]
+  }
+
+  statement {
+    sid    = "AllowServiceUse"
+    effect = "Allow"
+
+    principals {
+      type = "Service"
+      identifiers = [
+        "cloudtrail.${data.aws_partition.current.dns_suffix}",
+        "config.${data.aws_partition.current.dns_suffix}",
+        "logs.${data.aws_region.current.region}.${data.aws_partition.current.dns_suffix}",
+      ]
+    }
+
+    actions = [
+      "kms:Decrypt",
+      "kms:Encrypt",
+      "kms:GenerateDataKey*",
+      "kms:DescribeKey",
+    ]
+
+    resources = ["*"]
+  }
+
+  statement {
+    sid    = "AllowServiceGrants"
+    effect = "Allow"
+
+    principals {
+      type = "Service"
+      identifiers = [
+        "cloudtrail.${data.aws_partition.current.dns_suffix}",
+        "config.${data.aws_partition.current.dns_suffix}",
+        "logs.${data.aws_region.current.region}.${data.aws_partition.current.dns_suffix}",
+      ]
+    }
+
+    actions = [
+      "kms:CreateGrant",
+      "kms:RetireGrant",
+    ]
+
+    resources = ["*"]
+
+    condition {
+      test     = "Bool"
+      variable = "kms:GrantIsForAWSResource"
+      values   = ["true"]
+    }
+  }
+}
+
 resource "aws_kms_key" "logs" {
   description             = "UC01 logging bucket encryption key"
   enable_key_rotation     = var.kms_key_rotation_enabled
   deletion_window_in_days = var.kms_deletion_window
+  policy                  = data.aws_iam_policy_document.kms.json
 
   tags = local.tags
 }
@@ -140,12 +208,10 @@ data "aws_iam_policy_document" "log_bucket" {
       }
 
       actions = [
-        "s3:PutBucketAcl",
         "s3:PutObject"
       ]
 
       resources = [
-        aws_s3_bucket.logs.arn,
         "${aws_s3_bucket.logs.arn}/config/*"
       ]
 
@@ -159,6 +225,60 @@ data "aws_iam_policy_document" "log_bucket" {
         test     = "StringEquals"
         variable = "s3:x-amz-server-side-encryption"
         values   = ["aws:kms"]
+      }
+
+      condition {
+        test     = "StringEquals"
+        variable = "s3:x-amz-server-side-encryption-aws-kms-key-id"
+        values   = [aws_kms_key.logs.arn]
+      }
+    }
+  }
+
+  dynamic "statement" {
+    for_each = var.enable_config ? [1] : []
+    content {
+      sid    = "AWSConfigAclCheck"
+      effect = "Allow"
+
+      principals {
+        type        = "Service"
+        identifiers = ["config.${data.aws_partition.current.dns_suffix}"]
+      }
+
+      actions = [
+        "s3:GetBucketAcl"
+      ]
+
+      resources = [
+        aws_s3_bucket.logs.arn
+      ]
+    }
+  }
+
+  dynamic "statement" {
+    for_each = var.enable_config ? [1] : []
+    content {
+      sid    = "AWSConfigAcl"
+      effect = "Allow"
+
+      principals {
+        type        = "Service"
+        identifiers = ["config.${data.aws_partition.current.dns_suffix}"]
+      }
+
+      actions = [
+        "s3:PutBucketAcl"
+      ]
+
+      resources = [
+        aws_s3_bucket.logs.arn
+      ]
+
+      condition {
+        test     = "StringEquals"
+        variable = "s3:x-amz-acl"
+        values   = ["bucket-owner-full-control"]
       }
     }
   }
@@ -233,7 +353,7 @@ resource "aws_cloudtrail" "main" {
   enable_log_file_validation    = true
   kms_key_id                    = aws_kms_key.logs.arn
   enable_logging                = true
-  cloud_watch_logs_group_arn    = var.enable_cloudwatch_logs ? aws_cloudwatch_log_group.trail[0].arn : null
+  cloud_watch_logs_group_arn    = var.enable_cloudwatch_logs ? format("%s:*", aws_cloudwatch_log_group.trail[0].arn) : null
   cloud_watch_logs_role_arn     = var.enable_cloudwatch_logs ? aws_iam_role.cloudtrail_to_cloudwatch[0].arn : null
 
   tags = local.tags
@@ -266,7 +386,7 @@ resource "aws_iam_role_policy_attachment" "config" {
   count = var.enable_config ? 1 : 0
 
   role       = aws_iam_role.config[0].name
-  policy_arn = "arn:${data.aws_partition.current.partition}:iam::aws:policy/service-role/AWSConfigRole"
+  policy_arn = "arn:${data.aws_partition.current.partition}:iam::aws:policy/service-role/AWS_ConfigRole"
 }
 
 resource "aws_config_configuration_recorder" "main" {
@@ -287,6 +407,7 @@ resource "aws_config_delivery_channel" "main" {
   name           = "${var.name_prefix}-channel"
   s3_bucket_name = aws_s3_bucket.logs.bucket
   s3_key_prefix  = "config"
+  s3_kms_key_arn = aws_kms_key.logs.arn
 
   depends_on = [aws_config_configuration_recorder.main]
 }
