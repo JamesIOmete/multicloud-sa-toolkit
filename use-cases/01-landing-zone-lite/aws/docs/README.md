@@ -105,6 +105,22 @@ Each submodule exposes additional knobs (retention, CloudWatch streaming, Config
 
 ---
 
+## Post-apply checklist
+- Confirm SNS email subscriptions for guardrail and cost alert topics.
+- Verify CloudTrail is enabled and delivering to the log bucket.
+- Verify AWS Config recorder + delivery channel are enabled.
+
+---
+
+## Notes and troubleshooting
+- **SNS subscriptions:** `terraform apply` creates email subscriptions; you must confirm them in your inbox.
+- **Budget names:** AWS Budgets names are account-unique. If you re-run and see a duplicate error, import the budget or change the name prefix.
+- **Anomaly alerts:** DAILY/WEEKLY frequencies require EMAIL subscribers. Use `anomaly_frequency = "IMMEDIATE"` if you want SNS-based anomaly alerts.
+- **Config delivery errors:** If Config cannot write to S3, the log bucket policy or KMS permissions are usually the cause.
+- **CloudTrail log group errors:** CloudTrail requires a log group ARN with a `:*` suffix and KMS key permissions for `logs.<region>.amazonaws.com`.
+
+---
+
 ## Cleanup
 All resources share the `mcsa-uc01-<env>` prefix and toolkit tags. To remove the baseline:
 
