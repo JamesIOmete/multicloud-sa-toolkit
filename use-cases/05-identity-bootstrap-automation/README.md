@@ -24,3 +24,6 @@ Establish secure GitHub Actions to cloud trust so CI/CD pipelines can run Terraf
 - GCP: terraform definitions under `gcp/terraform/`
 
 Detailed per-cloud runbooks will live in `aws/docs/`, `azure/docs/`, and `gcp/docs/` as they are authored.
+
+## Cleanup and repeatability
+See `docs/CLEANUP.md` for repeatable run guidance and cleanup steps.

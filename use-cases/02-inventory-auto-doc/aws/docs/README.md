@@ -101,3 +101,8 @@ Do not commit:
 - `terraform.tfstate*`
 - `.terraform/`
 - `backend/*.hcl` that contain real bucket names
+
+---
+
+## Cleanup and repeatability
+See `docs/CLEANUP.md` for repeatable run guidance and cleanup steps.

@@ -132,6 +132,11 @@ If you enabled the SCP pack, detach the policy (or destroy via Terraform) before
 
 ---
 
+## Cleanup and repeatability
+See `docs/CLEANUP.md` for repeatable run guidance and cleanup steps.
+
+---
+
 ## Next steps
 - Integrate these alerts with Slack/PagerDuty by replacing or extending the SNS subscriptions.
 - Extend cost controls with project/account filters once you have tagging standards.

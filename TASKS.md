@@ -30,3 +30,4 @@ Last updated: 2026-01-15
 - 2026-01-15: ran UC01 plan with cascadiaio profile; after fixing anomaly threshold match option, plan succeeded (31 to add)
 - 2026-01-15: attempted UC01 apply; partial resources created, apply failed with SNS policy error, duplicate budget name, anomaly subscription frequency vs SNS, S3 bucket policy conditions, missing AWS Config role policy ARN, and KMS permissions for CloudWatch Logs
 - 2026-01-15: fixed UC01 cost-controls SNS principal, anomaly subscription, bucket policy, KMS policy, Config policy ARN, and CloudTrail log group ARN; imported budget; UC01 apply completed successfully
+- 2026-01-15: added cleanup and repeatability guidance in docs/CLEANUP.md and linked from UC01/UC02/UC05 docs
