@@ -24,6 +24,34 @@ UC02 expects the GitHub OIDC provider + role to already exist (Use Case 05).
 Also ensure GitHub Actions has this repo variable set:
 - `AWS_OIDC_ROLE_ARN = arn:aws:iam::<ACCOUNT_ID>:role/github-terraform-oidc`
 
+### Organizations discovery assume role
+Local operators need an IAM role they can assume to read AWS Organizations metadata. Create one time:
+
+1. Copy `docs/org-discovery-trust.json` and `docs/org-discovery-policy.json` locally.
+2. Replace `<ACCOUNT_ID>` with your AWS account ID and adjust the IAM user name if you do not use `james-terraform`.
+3. Apply with an administrator profile:
+
+```bash
+AWS_PROFILE=admin-profile aws iam create-role \
+   --role-name org-discovery-readonly \
+   --assume-role-policy-document file://org-discovery-trust.json
+
+AWS_PROFILE=admin-profile aws iam put-role-policy \
+   --role-name org-discovery-readonly \
+   --policy-name OrgDiscoveryReadOnly \
+   --policy-document file://org-discovery-policy.json
+```
+
+4. Test from the limited CLI profile (example: `james-terraform`):
+
+```bash
+AWS_PROFILE=james-terraform aws sts assume-role \
+   --role-arn arn:aws:iam::<ACCOUNT_ID>:role/org-discovery-readonly \
+   --role-session-name org-discovery-check
+```
+
+Successful assume-role verifies the discovery scripts will be able to list the organization hierarchy.
+
 ### Backend requirement (AWS S3 state)
 If you use an S3 backend for this Terraform stack, the referenced S3 bucket **must already exist**.
 

@@ -1,0 +1,24 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "OrgDiscoveryReadOnly",
+      "Effect": "Allow",
+      "Action": [
+        "organizations:DescribeOrganization",
+        "organizations:ListRoots",
+        "organizations:ListAccounts",
+        "organizations:DescribeAccount",
+        "organizations:ListParents",
+        "organizations:ListOrganizationalUnitsForParent",
+        "organizations:ListPolicies",
+        "organizations:ListPoliciesForTarget",
+        "organizations:ListTargetsForPolicy",
+        "organizations:ListTagsForResource",
+        "organizations:ListAWSServiceAccessForOrganization",
+        "organizations:DescribePolicy"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

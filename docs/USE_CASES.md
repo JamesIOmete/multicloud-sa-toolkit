@@ -25,6 +25,10 @@ Entry point:
 Doc entry point (AWS):
 - `use-cases/02-inventory-auto-doc/aws/docs/README.md`
 
+Notes:
+- Requires IAM role `org-discovery-readonly` that your limited AWS profile can assume (see documentation for setup).
+- Latest validation: AWS run on 2026-01-19 using GitHub Actions artifact `uc02-aws-inventory`.
+
 Sample output (sanitized):
 - `use-cases/02-inventory-auto-doc/aws/sample-output/SUMMARY.sample.md`
 - `use-cases/02-inventory-auto-doc/aws/sample-output/inventory.sample.json`
@@ -38,6 +42,9 @@ Sample output (sanitized):
 
 Doc entry point (AWS):
 - `use-cases/01-landing-zone-lite/aws/docs/README.md`
+
+Notes:
+- Validation checks confirmed CloudTrail logging, AWS Config recording, and SNS topics operational as of 2026-01-19.
 
 ## Upcoming
 - UC03 - Monitoring and alerting starter pack (golden signals plus cost anomaly alerts)

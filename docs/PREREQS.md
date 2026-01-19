@@ -77,6 +77,11 @@ export AWS_EC2_METADATA_DISABLED=true
 aws sts get-caller-identity
 ```
 
+### Discovery permissions best practice
+- Keep the local profile (e.g., `james-terraform`) limited to read-only duties.
+- Provision a separate IAM role such as `org-discovery-readonly` with AWS Organizations describe/list access, and allow only that profile to assume it.
+- Store the example trust/policy JSON locally (see `docs/org-discovery-trust.json` and `docs/org-discovery-policy.json`) and replace `<ACCOUNT_ID>` with your values before applying.
+
 ## Remote state prerequisites (Terraform backends)
 Some stacks use a remote backend (AWS S3, etc.). In those cases:
 
