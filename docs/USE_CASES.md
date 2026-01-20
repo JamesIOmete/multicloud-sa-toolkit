@@ -18,17 +18,25 @@ Entry point:
 ## UC02 — Environment inventory + auto-documentation (“what’s here and how is it wired?”)
 **Goal:** produce portable artifacts (`inventory.json`, `SUMMARY.md`) that help with migrations, reviews, incident context, and onboarding.
 
+
+Doc entry point (AWS):
+
+Notes:
+
+
+## UC03 — Monitoring and alerting starter pack (token workloads + CloudWatch alerts)
+**Goal:** provide baseline monitoring for representative workloads (queue backlog, processing delays) and wire alerts to email.
+
 - AWS: ✅
 - Azure: 🔜
 - GCP: 🔜
 
 Doc entry point (AWS):
-- `use-cases/02-inventory-auto-doc/aws/docs/README.md`
+- `use-cases/03-monitoring-starter/aws/docs/README.md`
 
 Notes:
-- Requires IAM role `org-discovery-readonly` that your limited AWS profile can assume (see documentation for setup).
-- Latest validation: AWS run on 2026-01-19 using GitHub Actions artifact `uc02-aws-inventory`.
-
+- Token SQS workload with CloudWatch dashboard and alarms targeting SNS email.
+- Latest validation: AWS stack applied and alarms triggered locally on 2026-01-20.
 Sample output (sanitized):
 - `use-cases/02-inventory-auto-doc/aws/sample-output/SUMMARY.sample.md`
 - `use-cases/02-inventory-auto-doc/aws/sample-output/inventory.sample.json`
@@ -47,5 +55,4 @@ Notes:
 - Validation checks confirmed CloudTrail logging, AWS Config recording, and SNS topics operational as of 2026-01-19.
 
 ## Upcoming
-- UC03 - Monitoring and alerting starter pack (token workloads + CloudWatch alerts)
 - UC04 - Ephemeral sandbox factory (repeatable low-cost environments)

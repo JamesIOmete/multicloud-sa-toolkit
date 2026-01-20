@@ -7,17 +7,16 @@
 
 ## Pending Work
 1. **UC03 — Monitoring and Alerting Starter Pack**
-   - Terraform scaffolding added under `use-cases/03-monitoring-starter/aws/` (token SQS workload + alarms + dashboard).
-   - Documentation added ([use-cases/03-monitoring-starter/aws/docs/README.md](use-cases/03-monitoring-starter/aws/docs/README.md)).
-   - Next: run local validation and capture outputs once user is available to confirm SNS email subscription.
+   - Terraform scaffolding committed under `use-cases/03-monitoring-starter/aws/`.
+   - Local validation completed on 2026-01-20 (alarms fired, email received).
+   - Next: automate proof workflow in GitHub Actions after UC04 planning.
 
 2. **UC04 — Ephemeral Sandbox Factory**
    - Define sandbox structure (VPC, guardrails, cost controls) with TTL enforcement.
    - Determine sandbox size, default TTL, and whether to provision in current account or a dedicated sandbox account.
 
 ## Information Needed from User
-- UC03: waiting on SNS subscription confirmation to run live alarm tests (beyond that, no blocking inputs).
-- UC04: provide desired sandbox TTL (target is 72h per latest discussion), resource scope, and whether to stand up a separate sandbox account before execution.
+- UC04: provide desired sandbox resource scope (compute/storage) and confirm when to create dedicated sandbox account.
 - Environment strategy: confirm timing for moving to dedicated sandbox account versus continuing in current account.
 
 ## Next Steps (after inputs)

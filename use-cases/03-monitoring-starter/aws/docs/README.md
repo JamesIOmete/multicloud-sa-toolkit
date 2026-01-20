@@ -70,6 +70,11 @@ To exercise the alarms locally:
 3. Monitor alarm transitions in the CloudWatch console or via `aws cloudwatch describe-alarms`.
 4. After tests, purge the queue: `aws sqs purge-queue --queue-url <QUEUE_URL>`.
 
+### Validation snapshot (2026-01-20)
+- Alarm `mcsa-uc03-toolkit-test-queue-age` entered `ALARM` after message age 184 seconds.
+- Alarm `mcsa-uc03-toolkit-test-queue-depth` returned to `OK` once backlog drained.
+- Email notification received at `jward448@gmail.com` confirming SNS subscription and alarm firing.
+
 ---
 
 ## Cleanup
