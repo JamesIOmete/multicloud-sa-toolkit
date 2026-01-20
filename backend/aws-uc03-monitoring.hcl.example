@@ -1,0 +1,6 @@
+bucket       = "multicloud-sa-toolkit-tfstate-<ACCOUNT_ID>"
+region       = "us-west-2"
+key          = "use-cases/03-monitoring-starter/aws/terraform/root/terraform.tfstate"
+encrypt      = true
+use_lockfile = true
+profile      = "james-terraform"

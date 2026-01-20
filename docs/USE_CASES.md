@@ -47,5 +47,5 @@ Notes:
 - Validation checks confirmed CloudTrail logging, AWS Config recording, and SNS topics operational as of 2026-01-19.
 
 ## Upcoming
-- UC03 - Monitoring and alerting starter pack (golden signals plus cost anomaly alerts)
+- UC03 - Monitoring and alerting starter pack (token workloads + CloudWatch alerts)
 - UC04 - Ephemeral sandbox factory (repeatable low-cost environments)
