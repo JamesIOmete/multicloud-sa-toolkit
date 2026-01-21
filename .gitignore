@@ -23,6 +23,7 @@ terraform.rc
 **/terraform.tfstate
 **/terraform.tfstate.*
 use-cases/**/terraform/modules/**/.terraform.lock.hcl
+docs/SESSION_NOTES.md
 
 # Local backend config
 backend/*.hcl

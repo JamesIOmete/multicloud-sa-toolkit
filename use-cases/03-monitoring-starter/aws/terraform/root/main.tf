@@ -22,13 +22,9 @@ locals {
     managed_by = "terraform"
   }, var.additional_tags)
 
-  topic_name = var.monitoring_topic_name_override != ""
-    ? var.monitoring_topic_name_override
-    : "${local.base_name}-alerts"
+  topic_name = var.monitoring_topic_name_override != "" ? var.monitoring_topic_name_override : "${local.base_name}-alerts"
 
-  topic_arn = var.use_existing_topic_arn != ""
-    ? var.use_existing_topic_arn
-    : aws_sns_topic.monitoring[0].arn
+  topic_arn = var.use_existing_topic_arn != "" ? var.use_existing_topic_arn : aws_sns_topic.monitoring[0].arn
 }
 
 resource "aws_sns_topic" "monitoring" {
