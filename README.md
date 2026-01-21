@@ -9,15 +9,25 @@ Focus: identity bootstrap for automation, environment discovery, monitoring base
   - Azure 🔜
   - GCP 🔜
 
-- **UC05 — Identity bootstrap for automation (GitHub Actions OIDC → Cloud)**
-  - AWS ✅ implemented + validated
-  - Azure 🧱 implemented (validation pending)
-  - GCP 🧱 implemented (validation pending)
-
 - **UC02 — Environment inventory + auto-documentation**
   - AWS ✅ implemented + validated
   - Azure 🔜
   - GCP 🔜
+
+- **UC03 — Monitoring starter (token workloads + CloudWatch alerts)**
+  - AWS ✅ implemented + validated
+  - Azure 🔜
+  - GCP 🔜
+
+- **UC04 — Ephemeral sandbox factory (Fargate + cost guardrails)**
+  - AWS ✅ implemented + validated
+  - Azure 🔜
+  - GCP 🔜
+
+- **UC05 — Identity bootstrap for automation (GitHub Actions OIDC → Cloud)**
+  - AWS ✅ implemented + validated
+  - Azure 🧱 implemented (validation pending)
+  - GCP 🧱 implemented (validation pending)
 
 See: `docs/USE_CASES.md`
 
@@ -33,6 +43,7 @@ Cloud navigation index: `docs/CLOUDS.md`
 2. Bootstrap GitHub Actions trust (UC05) so automation can run keyless.
 3. Apply the landing zone baseline (UC01) to enable guardrails, logging, and cost alerts.
 4. Capture current-state inventory (UC02) before further changes.
+5. Stand up the monitoring starter pack (UC03) or ephemeral sandbox (UC04) as needed for workload validation.
 
 ## Security posture (recommended)
 - CI/CD uses GitHub OIDC (no long-lived cloud keys stored in GitHub).
