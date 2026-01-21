@@ -1,0 +1,32 @@
+aws_region = "us-west-2"
+
+env        = "toolkit-test"
+owner      = "platform-team"
+sandbox_id = "uc04-sbx01"
+
+additional_tags = {
+  project = "ephemeral-sandbox"
+}
+
+vpc_cidr             = "10.24.0.0/20"
+public_subnet_cidrs  = ["10.24.0.0/24", "10.24.2.0/24"]
+private_subnet_cidrs = ["10.24.1.0/24", "10.24.3.0/24"]
+availability_zones   = ["us-west-2a", "us-west-2b"]
+
+container_image           = "public.ecr.aws/docker/library/httpd:2.4-alpine"
+desired_count             = 1
+task_cpu                  = 256
+task_memory               = 512
+task_log_retention_days   = 14
+enable_container_insights = true
+
+monthly_budget_amount    = 25
+budget_threshold_percent = 80
+anomaly_threshold_amount = 10
+enable_cost_anomaly_monitor = false
+
+alert_topic_arn          = "arn:aws:sns:us-west-2:389149116969:mcsa-uc04-toolkit-test-alerts"
+fallback_alert_topic_arn = "arn:aws:sns:us-west-2:389149116969:mcsa-uc01-toolkit-test-alerts"
+metadata_table_name      = ""
+create_metadata_table    = true
+ttl_hours                = 72
