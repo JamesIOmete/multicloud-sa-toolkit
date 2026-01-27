@@ -10,7 +10,7 @@ Status legend:
 
 - AWS: ✅
 - Azure: 🧱
-- GCP: 🧱
+- GCP: ✅
 
 Entry point:
 - `use-cases/05-identity-bootstrap-automation/`
@@ -23,10 +23,12 @@ Notes:
 
 - AWS: ✅
 - Azure: 🔜
-- GCP: 🔜
+- GCP: ✅
 
 Doc entry point (AWS):
 - `use-cases/02-inventory-auto-doc/aws/docs/README.md`
+Doc entry point (GCP):
+- `use-cases/02-inventory-auto-doc/gcp/docs/README.md`
 
 Notes:
 - Includes scripted discovery under `aws/scripts/discover.sh` and sample output in `aws/sample-output/`.
@@ -41,10 +43,12 @@ Sample output (sanitized):
 
 - AWS: ✅
 - Azure: 🔜
-- GCP: 🔜
+- GCP: ✅
 
 Doc entry point (AWS):
 - `use-cases/03-monitoring-starter/aws/docs/README.md`
+Doc entry point (GCP):
+- `use-cases/03-monitoring-starter/gcp/docs/README.md`
 
 Notes:
 - Token SQS workload with CloudWatch dashboard and alarms targeting SNS email.
@@ -55,10 +59,12 @@ Notes:
 
 - AWS: ✅
 - Azure: 🔜
-- GCP: 🔜
+- GCP: ✅
 
 Doc entry point (AWS):
 - `use-cases/04-ephemeral-sandbox/aws/docs/README.md`
+Doc entry point (GCP):
+- `use-cases/04-ephemeral-sandbox/gcp/docs/README.md`
 
 Notes:
 - Terraform modules cover networking, Fargate, metadata tracking, and cost controls with a validated runbook (updated 2026-01-20).
@@ -69,14 +75,16 @@ Notes:
 
 - AWS: ✅
 - Azure: 🔜
-- GCP: 🔜
+- GCP: ✅
 
 Doc entry point (AWS):
 - `use-cases/01-landing-zone-lite/aws/docs/README.md`
+Doc entry point (GCP):
+- `use-cases/01-landing-zone-lite/gcp/docs/README.md`
 
 Notes:
 - Validation checks confirmed CloudTrail logging, AWS Config recording, and SNS topics operational as of 2026-01-19.
 
 ## Upcoming
 - Azure/GCP parity for UC01–UC04
-- Validation runs for UC05 Azure/GCP paths
+- Validation runs for UC05 Azure path
