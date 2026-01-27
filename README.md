@@ -32,6 +32,7 @@ Focus: identity bootstrap for automation, environment discovery, monitoring base
 See: `docs/USE_CASES.md`
 Validation guide: `docs/VALIDATION_GCP.md`
 Implementation standards: `docs/IMPLEMENTATION_STANDARDS_GCP.md`, `docs/IMPLEMENTATION_STANDARDS_AZURE.md`
+Lessons learned (public-safe): `docs/LESSONS_LEARNED_GCP.md`
 
 Cloud navigation index: `docs/CLOUDS.md`
 

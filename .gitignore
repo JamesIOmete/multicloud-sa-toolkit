@@ -28,6 +28,9 @@ docs/SESSION_NOTES.md
 # Local backend config
 backend/*.hcl
 !backend/*.hcl.example
+**/backend.hcl
+**/*.tfplan
+**/source.zip
 
 # Windows ADS cruft
 *:Zone.Identifier

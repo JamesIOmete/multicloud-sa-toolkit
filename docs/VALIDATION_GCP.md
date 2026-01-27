@@ -4,6 +4,17 @@ These steps validate the GCP use cases and the instructions themselves. Follow i
 
 ---
 
+## Validation Summary (public-safe)
+
+- **Key APIs to enable:** IAM, IAM Credentials, Cloud Resource Manager, Pub/Sub, Cloud Functions, Cloud Run, Eventarc, Cloud Build, Artifact Registry, Billing Budgets.
+- **Impersonation:** human user must have `roles/iam.serviceAccountTokenCreator` on the automation SA; the automation SA needs project IAM to manage IAM (`roles/resourcemanager.projectIamAdmin`) and WIF (`roles/iam.workloadIdentityPoolAdmin`) for UC05.
+- **UC03:** use `nodejs20`; delta metrics require `per_series_aligner` (e.g., `ALIGN_RATE`); build failures typically require Artifact Registry read/write for both compute and Cloud Build service accounts plus storage object viewer for `gcf-v2-sources-*`.
+- **UC04:** Cloud Run may be **auth-required** if `allUsers` is disallowed by org policy; budget filters require **project number**, not project ID. Budget creation may succeed via `gcloud` but fail in Terraform—import is a valid fallback.
+- **Notifications:** email channel verification can be unreliable; SMS is more consistent. If a verified SMS channel exists, import it to avoid duplicates.
+- **Local-only files:** keep `backend.hcl`, `*.tfplan`, and generated archives (e.g., `source.zip`) uncommitted.
+
+See `docs/LESSONS_LEARNED_GCP.md` for a concise summary.
+
 ## A) Prerequisites: Local setup (keyless impersonation)
 
 Before starting, ensure your local environment is configured for keyless authentication as described in `IMPLEMENTATION_STANDARDS_GCP.md`.
