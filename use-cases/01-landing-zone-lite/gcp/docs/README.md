@@ -2,6 +2,12 @@
 
 This document provides the runbook for deploying a minimum governance baseline to a GCP project.
 
+## References
+
+- Implementation standards: `docs/IMPLEMENTATION_STANDARDS_GCP.md`
+- Validation guide: `docs/VALIDATION_GCP.md`
+- Lessons learned (public-safe): `docs/LESSONS_LEARNED_GCP.md`
+
 ## 1. What this stack creates and why
 
 This Terraform stack establishes a foundational governance baseline within a GCP project, ensuring adherence to best practices for security, logging, and cost management.

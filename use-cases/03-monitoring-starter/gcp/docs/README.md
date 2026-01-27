@@ -2,6 +2,12 @@
 
 This document provides the runbook for deploying a baseline monitoring and alerting stack in GCP.
 
+## References
+
+- Implementation standards: `docs/IMPLEMENTATION_STANDARDS_GCP.md`
+- Validation guide: `docs/VALIDATION_GCP.md`
+- Lessons learned (public-safe): `docs/LESSONS_LEARNED_GCP.md`
+
 ## 1. What this stack creates and why
 
 This Terraform stack provisions a "token workload" and corresponding monitoring to serve as a starting point for application monitoring.

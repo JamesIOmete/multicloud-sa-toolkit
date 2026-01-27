@@ -2,6 +2,12 @@
 
 This document provides the runbook for deploying a short-lived, low-cost application sandbox in GCP.
 
+## References
+
+- Implementation standards: `docs/IMPLEMENTATION_STANDARDS_GCP.md`
+- Validation guide: `docs/VALIDATION_GCP.md`
+- Lessons learned (public-safe): `docs/LESSONS_LEARNED_GCP.md`
+
 ## 1. What this stack creates and why
 
 This Terraform stack provisions an ephemeral sandbox environment, which is useful for development, testing, and demos. The resources are tagged with a unique `sandbox_id` for easy identification and cleanup.

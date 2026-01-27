@@ -2,6 +2,12 @@
 
 This document provides the runbook for establishing a trust relationship between GitHub Actions and Google Cloud Platform (GCP) using OpenID Connect (OIDC).
 
+## References
+
+- Implementation standards: `docs/IMPLEMENTATION_STANDARDS_GCP.md`
+- Validation guide: `docs/VALIDATION_GCP.md`
+- Lessons learned (public-safe): `docs/LESSONS_LEARNED_GCP.md`
+
 ## 1. What this stack creates and why
 
 This Terraform stack provisions the necessary GCP resources to allow GitHub Actions workflows to authenticate with GCP without using long-lived static service account keys. This is a security best practice.
