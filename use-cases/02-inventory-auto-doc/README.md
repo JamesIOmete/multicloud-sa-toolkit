@@ -1,17 +1,8 @@
-# Use Case 02 - Environment Inventory + Auto-Documentation (MVP)
+# Use Case 02 — Environment Inventory + Auto-documentation
 
-Generate a portable inventory of your cloud environment and a plain-language summary that you can attach to reviews, audits, or onboarding docs.
+This use case generates a portable, point-in-time inventory of a cloud environment. The output helps with migrations, reviews, incident context, and onboarding.
 
-## What it does
-- Captures a machine-readable snapshot of key resources (network, compute, IAM) in `inventory.json`.
-- Writes a teammate-friendly `SUMMARY.md` so reviewers do not need to read raw JSON.
-- Packages both files as GitHub Actions artifacts for easy download and sharing.
+## Cloud Implementations
 
-## When to run it
-- On demand before architecture reviews, migrations, incident postmortems, or quarterly governance checks.
-- Any time you need a current-state picture without granting broad console access to stakeholders.
-
-## Implementations
-- AWS: aws/docs/README.md (current reference implementation)
-- Azure: planned
-- GCP: planned
+- **AWS:** [aws/docs/README.md](aws/docs/README.md)
+- **GCP:** [gcp/docs/README.md](gcp/docs/README.md)
