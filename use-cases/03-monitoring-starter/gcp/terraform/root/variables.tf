@@ -9,20 +9,10 @@ variable "region" {
   default     = "us-central1"
 }
 
-variable "github_org" {
-  type        = string
-  description = "The GitHub organization."
-}
-
-variable "github_repo" {
-  type        = string
-  description = "The GitHub repository."
-}
-
 variable "name_prefix" {
   type        = string
   description = "The prefix for the resource names."
-  default     = "mcsa-uc05"
+  default     = "mcsa-uc03"
 }
 
 variable "env" {
@@ -35,4 +25,9 @@ variable "owner" {
   type        = string
   description = "The owner of the resources."
   default     = "platform-team"
+}
+
+variable "notification_sms_number" {
+  type        = string
+  description = "The phone number for SMS notifications (E.164 format)."
 }

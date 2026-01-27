@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "generated_at": "2026-01-21T12:00:00Z",
+    "project_id": "sample-gcp-project",
+    "region": "us-central1"
+  },
+  "iam": {
+    "service_accounts": [
+      {
+        "displayName": "Default compute service account",
+        "email": "123456-compute@developer.gserviceaccount.com",
+        "name": "projects/sample-gcp-project/serviceAccounts/123456-compute@developer.gserviceaccount.com",
+        "oauth2ClientId": "111111111111111111111",
+        "projectId": "sample-gcp-project",
+        "uniqueId": "111111111111111111111"
+      }
+    ]
+  },
+  "network": {
+    "vpcs": [
+      {
+        "autoCreateSubnetworks": true,
+        "creationTimestamp": "2026-01-01T10:00:00.000-07:00",
+        "description": "Default network for the project",
+        "id": "2222222222222222222",
+        "name": "default",
+        "routingConfig": {
+          "routingMode": "REGIONAL"
+        },
+        "selfLink": "https://www.googleapis.com/compute/v1/projects/sample-gcp-project/global/networks/default",
+        "subnetworks": [
+          "https://www.googleapis.com/compute/v1/projects/sample-gcp-project/regions/us-central1/subnetworks/default"
+        ]
+      }
+    ],
+    "subnets": [
+      {
+        "creationTimestamp": "2026-01-01T10:00:00.000-07:00",
+        "gatewayAddress": "10.128.0.1",
+        "id": "3333333333333333333",
+        "ipCidrRange": "10.128.0.0/20",
+        "name": "default",
+        "network": "https://www.googleapis.com/compute/v1/projects/sample-gcp-project/global/networks/default",
+        "privateIpGoogleAccess": false,
+        "purpose": "PRIVATE",
+        "region": "https://www.googleapis.com/compute/v1/projects/sample-gcp-project/regions/us-central1",
+        "selfLink": "https://www.googleapis.com/compute/v1/projects/sample-gcp-project/regions/us-central1/subnetworks/default",
+        "stackType": "IPV4_ONLY"
+      }
+    ],
+    "firewall_rules": []
+  },
+  "compute": {
+    "instances": [
+      {
+        "cpuPlatform": "Intel Broadwell",
+        "creationTimestamp": "2026-01-10T11:00:00.000-07:00",
+        "disks": [
+          {
+            "autoDelete": true,
+            "boot": true,
+            "deviceName": "instance-1",
+            "index": 0,
+            "interface": "SCSI",
+            "kind": "compute#attachedDisk",
+            "mode": "READ_WRITE",
+            "source": "https://www.googleapis.com/compute/v1/projects/sample-gcp-project/zones/us-central1-a/disks/instance-1",
+            "type": "PERSISTENT"
+          }
+        ],
+        "id": "4444444444444444444",
+        "kind": "compute#instance",
+        "machineType": "https://www.googleapis.com/compute/v1/projects/sample-gcp-project/zones/us-central1-a/machineTypes/e2-medium",
+        "name": "instance-1",
+        "networkInterfaces": [
+          {
+            "fingerprint": "abcdefg=",
+            "kind": "compute#networkInterface",
+            "name": "nic0",
+            "network": "https://www.googleapis.com/compute/v1/projects/sample-gcp-project/global/networks/default",
+            "networkIP": "10.128.0.2",
+            "subnetwork": "https://www.googleapis.com/compute/v1/projects/sample-gcp-project/regions/us-central1/subnetworks/default"
+          }
+        ],
+        "selfLink": "https://www.googleapis.com/compute/v1/projects/sample-gcp-project/zones/us-central1-a/instances/instance-1",
+        "status": "RUNNING",
+        "zone": "https://www.googleapis.com/compute/v1/projects/sample-gcp-project/zones/us-central1-a"
+      }
+    ]
+  }
+}
