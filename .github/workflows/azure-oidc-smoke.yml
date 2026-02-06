@@ -1,0 +1,28 @@
+name: azure-oidc-smoke
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Azure Login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Prove identity
+        run: |
+          az account show --query '{subscription:id, tenant:tenantId, user:user.name}' -o jsonc
+          echo "ARM_* environment variables should be empty when using azure/login with OIDC:"
+          env | sort | rg '^ARM_' || true
