@@ -34,3 +34,9 @@ backend/*.hcl
 
 # Windows ADS cruft
 *:Zone.Identifier
+
+# Local Codex CLI config
+.codex/
+
+# Terraform plan artifacts
+**/tfplan
