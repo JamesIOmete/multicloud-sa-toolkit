@@ -1,50 +1,10 @@
-# Running GitHub Actions workflows from the CLI (`gh`)
+# Workflows (GitHub Actions)
 
-This toolkit is designed so you can run “proof” workflows (smoke tests, inventory/discovery, etc.) **without** using the GitHub web UI.
-
-This is especially useful for Solution Architects because it’s:
-- fast (all CLI)
-- scriptable / repeatable
-- easy to paste into tickets/runbooks
+This doc shows how to run and inspect GitHub Actions workflows used by this toolkit.
 
 ---
 
-## Prerequisites
-
-### 1) Install GitHub CLI (`gh`)
-Ubuntu / Debian:
-```bash
-sudo apt update
-sudo apt install -y gh
-```
-
-Verify:
-```bash
-gh --version
-```
-
-### 2) Authenticate to GitHub
-```bash
-gh auth login
-gh auth status
-```
-
-> Authenticate to the GitHub account that has access to the repository.
-
-### 3) Clone the repo
-```bash
-git clone https://github.com/<OWNER>/<REPO>.git
-cd <REPO>
-```
-
-Optional: set a default repo for `gh` (so you can run commands from anywhere):
-```bash
-gh repo set-default <OWNER>/<REPO>
-```
-
----
-
-## Discover available workflows
+## List workflows
 
 List workflows:
 ```bash
@@ -66,12 +26,16 @@ ls -la .github/workflows
 ### Run by workflow file path (most reliable)
 ```bash
 gh workflow run .github/workflows/uc05-aws-smoke.yml
+gh workflow run .github/workflows/azure-oidc-smoke.yml
+gh workflow run .github/workflows/gcp-oidc-smoke.yml
 gh workflow run .github/workflows/uc02-aws-inventory.yml
 ```
 
 ### Run by workflow name (handy)
 ```bash
 gh workflow run aws-oidc-smoke
+gh workflow run azure-oidc-smoke
+gh workflow run gcp-oidc-smoke
 ```
 
 ---
@@ -116,6 +80,16 @@ gh run view <RUN_ID> --log
 gh run view <RUN_ID> --log | grep -E "assumed-role|github-terraform-oidc|get-caller-identity" -n || true
 ```
 
+**Azure OIDC smoke** should show federated token details and succeed `az account show`:
+```bash
+gh run view <RUN_ID> --log | grep -E "Federated token details|subject claim|issuer|az account show" -n || true
+```
+
+**GCP OIDC smoke** should show the auth action succeed (and typically `gcloud` is configured):
+```bash
+gh run view <RUN_ID> --log | grep -E "google-github-actions/auth|workload_identity_provider|Successfully authenticated|gcloud auth" -n || true
+```
+
 ---
 
 ## Download and use artifacts (inventory outputs, reports, etc.)
@@ -141,6 +115,7 @@ find /tmp/uc02 -type f \( -name "inventory.json" -o -name "SUMMARY.md" \) -print
 ```
 
 ### Use the outputs
+
 View the summary:
 ```bash
 head -n 80 /tmp/uc02/**/SUMMARY.md 2>/dev/null || head -n 80 /tmp/uc02/SUMMARY.md
@@ -178,6 +153,8 @@ You already downloaded into the same folder. Delete it (or pick a new folder) an
 1) **UC05 smoke** (OIDC auth works)
 ```bash
 gh workflow run aws-oidc-smoke
+gh workflow run azure-oidc-smoke
+gh workflow run gcp-oidc-smoke
 ```
 
 2) **UC02 inventory** (discovery works + artifacts produced)
