@@ -20,6 +20,16 @@ if [[ ! -d "$TERRAFORM_ROOT" ]]; then
   exit 1
 fi
 
+echo "==> repo hygiene"
+# Gitignore doesn't protect against already-tracked artifacts. Fail CI if someone
+# accidentally commits plan artifacts.
+if git ls-files | grep -E -q '\\.tfplan(\\..*)?$'; then
+  echo "ERROR: Tracked Terraform plan artifacts detected (*.tfplan). Remove them from git."
+  git ls-files | grep -E '\\.tfplan(\\..*)?$' || true
+  exit 1
+fi
+echo
+
 echo "==> terraform fmt (check)"
 terraform fmt -check -recursive "$TERRAFORM_ROOT"
 echo

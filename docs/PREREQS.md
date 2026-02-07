@@ -54,7 +54,9 @@ See: `docs/WORKFLOWS.md` for how to:
 Do **not** commit:
 - `terraform.tfstate*`
 - `.terraform/`
+- `*.tfplan` (Terraform plan artifacts)
 - local backend config files that contain real bucket names (example: `backend/*.hcl`)
+- generated outputs (example: `out/`)
 
 ## Authentication model (recommended)
 Use **different auth modes** for CI vs local work:

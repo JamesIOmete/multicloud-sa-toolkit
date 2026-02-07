@@ -30,6 +30,7 @@ backend/*.hcl
 !backend/*.hcl.example
 **/backend.hcl
 **/*.tfplan
+**/*.tfplan.*
 **/source.zip
 
 # Windows ADS cruft
