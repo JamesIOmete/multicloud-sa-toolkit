@@ -118,6 +118,7 @@ terraform apply
 - **Container DNS:** The ACI DNS label must be globally unique per region; this stack appends a random suffix.
 - **Budget start date:** Azure budgets reject a start date prior to the current month. Leave `budget_start_date` empty to use the current month default.
 - **Sandbox naming:** Updating `sandbox_id` or `name_prefix` forces replacement of most resources.
+- **Container reachability:** The default ACI image serves HTTP on port 80; verify with `curl http://<container_fqdn>`.
 
 ## 9. Cleanup
 
@@ -149,5 +150,5 @@ The workflow:
 ## 12. Validation snapshot
 
 - **Date:** 2026-02-07
-- **Result:** Not yet run in this repo; expected to plan successfully once backend config and notification emails are provided.
-- **Evidence:** N/A
+- **Result:** Local apply + curl validation + GitHub Actions plan succeeded.
+- **Evidence:** Container FQDN responded with hello-world, budget shown via `az consumption budget show`, workflow `uc04-azure-ephemeral-sandbox` completed.
