@@ -6,22 +6,22 @@ Focus: identity bootstrap for automation, environment discovery, monitoring base
 ## Use cases
 - **UC01 — Landing Zone Lite baseline (guardrails + logging + cost controls)**
   - AWS ✅ implemented + validated
-  - Azure 🔜
+  - Azure ✅ implemented + validated
   - GCP ✅ implemented + validated
 
 - **UC02 — Environment inventory + auto-documentation**
   - AWS ✅ implemented + validated
-  - Azure 🔜
+  - Azure ✅ implemented + validated
   - GCP ✅ implemented + validated
 
 - **UC03 — Monitoring starter (token workloads + CloudWatch alerts)**
   - AWS ✅ implemented + validated
-  - Azure 🔜
+  - Azure ✅ implemented + validated
   - GCP ✅ implemented + validated
 
 - **UC04 — Ephemeral sandbox factory (Fargate + cost guardrails)**
   - AWS ✅ implemented + validated
-  - Azure 🔜
+  - Azure ✅ implemented + validated
   - GCP ✅ implemented + validated
 
 - **UC05 — Identity bootstrap for automation (GitHub Actions OIDC → Cloud)**
