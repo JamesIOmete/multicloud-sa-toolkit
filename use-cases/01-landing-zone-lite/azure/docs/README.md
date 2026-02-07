@@ -130,6 +130,8 @@ terraform apply
 - **Storage account naming:** If you override `log_storage_account_name`, it must be globally unique and 3–24 lowercase alphanumeric characters.
 - **Log Analytics costs:** Leave `enable_log_analytics = false` if you want the lowest-cost baseline.
 - **Policy enforcement:** These assignments are enforcing by default. Use Azure Policy exemptions if you need temporary audit-only behavior.
+- **Allowed locations must include the logging region:** Ensure `allowed_locations` includes `location`, or the logging storage account creation will be blocked by policy.
+- **Budget start date:** Azure budgets reject a start date prior to the current month. Leave `budget_start_date` empty to use the current month default.
 
 ## 9. Cleanup
 
@@ -159,6 +161,10 @@ The workflow:
 - Uses `azure/login` with OIDC (no static secrets).
 - Runs `az account show` to prove identity.
 - Executes `terraform plan` only.
+
+Workflow notes:
+- Inputs for `notification_emails` and `allowed_locations` must be JSON lists (example: `["user@example.com"]`).
+- `ARM_SUBSCRIPTION_ID` is set from `AZURE_SUBSCRIPTION_ID` in the workflow to satisfy the AzureRM provider.
 
 ## 12. Validation snapshot
 
