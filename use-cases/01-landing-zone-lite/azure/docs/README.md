@@ -168,6 +168,6 @@ Workflow notes:
 
 ## 12. Validation snapshot
 
-- **Date:** 2026-01-21
-- **Result:** Not yet run in this repo; expected to plan successfully once backend config and notification emails are provided.
-- **Evidence:** N/A
+- **Date:** 2026-02-07
+- **Result:** Local apply + GitHub Actions plan succeeded.
+- **Evidence:** Activity Log diagnostic setting present, policy assignments listed, budget shown via `az consumption budget show`, workflow `uc01-azure-landing-zone` completed.

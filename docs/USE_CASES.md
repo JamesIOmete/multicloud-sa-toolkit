@@ -22,7 +22,7 @@ Notes:
 **Goal:** produce portable artifacts (`inventory.json`, `SUMMARY.md`) that help with migrations, reviews, incident context, and onboarding.
 
 - AWS: ✅
-- Azure: 🧱
+- Azure: ✅
 - GCP: ✅
 
 Doc entry point (AWS):
@@ -44,7 +44,7 @@ Sample output (sanitized):
 **Goal:** provide baseline monitoring for representative workloads (queue backlog, processing delays) and wire alerts to email.
 
 - AWS: ✅
-- Azure: 🧱
+- Azure: ✅
 - GCP: ✅
 
 Doc entry point (AWS):
@@ -62,7 +62,7 @@ Notes:
 **Goal:** deliver a short-lived application sandbox (VPC, Fargate service, budget guardrails, metadata store) that can be spun up and torn down quickly.
 
 - AWS: ✅
-- Azure: 🧱
+- Azure: ✅
 - GCP: ✅
 
 Doc entry point (AWS):
@@ -80,7 +80,7 @@ Notes:
 **Goal:** deliver a minimum governance baseline before workloads land in an account.
 
 - AWS: ✅
-- Azure: 🧱
+- Azure: ✅
 - GCP: ✅
 
 Doc entry point (AWS):
@@ -94,5 +94,4 @@ Notes:
 - Validation checks confirmed CloudTrail logging, AWS Config recording, and SNS topics operational as of 2026-01-19.
 
 ## Upcoming
-- Azure/GCP parity for UC01–UC04
 - Validation runs for UC05 Azure path
