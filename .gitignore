@@ -40,3 +40,7 @@ backend/*.hcl
 
 # Terraform plan artifacts
 **/tfplan
+
+# Discovery output
+out/
+**/out/
