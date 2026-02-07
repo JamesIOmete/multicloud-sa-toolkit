@@ -34,8 +34,8 @@ module "network" {
   location            = var.location
   resource_group_name = azurerm_resource_group.sandbox.name
   tags                = local.tags
-  vnet_cidr            = var.vnet_cidr
-  subnet_cidr          = var.subnet_cidr
+  vnet_cidr           = var.vnet_cidr
+  subnet_cidr         = var.subnet_cidr
 }
 
 module "workload" {
@@ -55,10 +55,10 @@ module "cost_controls" {
   source = "../modules/cost-controls"
   count  = var.enable_cost_controls ? 1 : 0
 
-  name_prefix           = local.sandbox_prefix
+  name_prefix              = local.sandbox_prefix
   subscription_resource_id = data.azurerm_subscription.current.id
-  monthly_budget_amount = var.monthly_budget_amount
-  budget_thresholds     = var.budget_thresholds
-  notification_emails   = var.notification_emails
-  budget_start_date     = var.budget_start_date
+  monthly_budget_amount    = var.monthly_budget_amount
+  budget_thresholds        = var.budget_thresholds
+  notification_emails      = var.notification_emails
+  budget_start_date        = var.budget_start_date
 }

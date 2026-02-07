@@ -47,7 +47,7 @@ resource "aws_eip" "nat" {
   count = var.enable_nat_gateway ? 1 : 0
 
   domain = "vpc"
-  tags = merge(local.tags, { Name = "${local.base_name}-nat-eip" })
+  tags   = merge(local.tags, { Name = "${local.base_name}-nat-eip" })
 }
 
 resource "aws_nat_gateway" "sandbox" {

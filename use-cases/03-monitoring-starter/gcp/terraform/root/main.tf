@@ -10,9 +10,9 @@ resource "google_pubsub_topic" "topic" {
 }
 
 resource "google_storage_bucket" "source_bucket" {
-  name          = format("%s-%s-source-bucket", var.name_prefix, var.env)
-  location      = var.region
-  force_destroy = true
+  name                        = format("%s-%s-source-bucket", var.name_prefix, var.env)
+  location                    = var.region
+  force_destroy               = true
   uniform_bucket_level_access = true
 }
 
@@ -104,7 +104,7 @@ resource "google_monitoring_notification_channel" "sms" {
   display_name = "SMS Notification"
   type         = "sms"
   labels = {
-    number       = var.notification_sms_number
+    number = var.notification_sms_number
   }
 }
 
@@ -114,9 +114,9 @@ resource "google_monitoring_alert_policy" "pubsub_backlog" {
   conditions {
     display_name = "High number of undelivered messages"
     condition_threshold {
-      filter     = "metric.type=\"pubsub.googleapis.com/subscription/num_undelivered_messages\" resource.type=\"pubsub_subscription\" resource.label.\"subscription_id\"=\"${google_pubsub_subscription.subscription.name}\""
-      duration   = "300s"
-      comparison = "COMPARISON_GT"
+      filter          = "metric.type=\"pubsub.googleapis.com/subscription/num_undelivered_messages\" resource.type=\"pubsub_subscription\" resource.label.\"subscription_id\"=\"${google_pubsub_subscription.subscription.name}\""
+      duration        = "300s"
+      comparison      = "COMPARISON_GT"
       threshold_value = 10
     }
   }
@@ -131,13 +131,13 @@ resource "google_monitoring_alert_policy" "function_errors" {
   conditions {
     display_name = "Function execution errors"
     condition_threshold {
-      filter     = "metric.type=\"cloudfunctions.googleapis.com/function/execution_count\" resource.type=\"cloud_function\" resource.label.\"function_name\"=\"${google_cloudfunctions2_function.function.name}\" metric.label.\"status\"=\"error\""
+      filter = "metric.type=\"cloudfunctions.googleapis.com/function/execution_count\" resource.type=\"cloud_function\" resource.label.\"function_name\"=\"${google_cloudfunctions2_function.function.name}\" metric.label.\"status\"=\"error\""
       aggregations {
-        alignment_period     = "60s"
-        per_series_aligner   = "ALIGN_RATE"
+        alignment_period   = "60s"
+        per_series_aligner = "ALIGN_RATE"
       }
-      duration   = "60s"
-      comparison = "COMPARISON_GT"
+      duration        = "60s"
+      comparison      = "COMPARISON_GT"
       threshold_value = 0
     }
   }

@@ -43,7 +43,8 @@ for d in "${TF_DIRS[@]}"; do
   (
     cd "$d"
     # validate shouldn't require credentials; avoid remote backend
-    terraform init -backend=false -input=false -upgrade >/dev/null
+    # Keep validation deterministic: don't auto-upgrade providers and don't rewrite lockfiles.
+    terraform init -backend=false -input=false -lockfile=readonly >/dev/null
     terraform validate -no-color
   ) || FAIL=1
   echo

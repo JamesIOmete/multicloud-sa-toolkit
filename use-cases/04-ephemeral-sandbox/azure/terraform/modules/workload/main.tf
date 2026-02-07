@@ -5,8 +5,8 @@ resource "random_string" "suffix" {
 }
 
 locals {
-  base_name = replace(replace(lower(var.name_prefix), "-", ""), "_", "")
-  dns_label = substr("${local.base_name}${random_string.suffix.result}", 0, 50)
+  base_name  = replace(replace(lower(var.name_prefix), "-", ""), "_", "")
+  dns_label  = substr("${local.base_name}${random_string.suffix.result}", 0, 50)
   group_name = substr(replace(replace(lower(var.name_prefix), "_", "-"), " ", "-"), 0, 60)
 }
 

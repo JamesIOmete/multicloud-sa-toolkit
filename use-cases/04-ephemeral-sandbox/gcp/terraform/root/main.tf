@@ -1,6 +1,6 @@
 provider "google" {
-  project = var.project_id
-  region  = var.region
+  project                     = var.project_id
+  region                      = var.region
   impersonate_service_account = var.impersonate_service_account
 }
 
@@ -8,12 +8,12 @@ data "google_project" "project" {}
 
 locals {
   common_labels = {
-    toolkit     = "multicloud-sa-toolkit"
-    use_case    = "04-ephemeral-sandbox"
-    env         = var.env
-    owner       = var.owner
-    managed_by  = "terraform"
-    sandbox_id  = var.sandbox_id
+    toolkit    = "multicloud-sa-toolkit"
+    use_case   = "04-ephemeral-sandbox"
+    env        = var.env
+    owner      = var.owner
+    managed_by = "terraform"
+    sandbox_id = var.sandbox_id
   }
   billing_account = replace(var.billing_account_id, "billingAccounts/", "")
 }
@@ -35,9 +35,9 @@ resource "google_compute_subnetwork" "subnet" {
 # --- 2. Compute (Cloud Run) ---
 
 resource "google_cloud_run_v2_service" "default" {
-  name     = format("%s-%s-app-%s", var.name_prefix, var.env, var.sandbox_id)
-  location = var.region
-  labels   = local.common_labels
+  name                = format("%s-%s-app-%s", var.name_prefix, var.env, var.sandbox_id)
+  location            = var.region
+  labels              = local.common_labels
   deletion_protection = false
 
   template {
@@ -47,8 +47,8 @@ resource "google_cloud_run_v2_service" "default" {
   }
 
   traffic {
-    percent         = 100
-    type            = "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST"
+    percent = 100
+    type    = "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST"
   }
 }
 

@@ -5,11 +5,11 @@ provider "google" {
 
 locals {
   common_labels = {
-    toolkit     = "multicloud-sa-toolkit"
-    use_case    = "01-landing-zone-lite"
-    env         = var.env
-    owner       = var.owner
-    managed_by  = "terraform"
+    toolkit    = "multicloud-sa-toolkit"
+    use_case   = "01-landing-zone-lite"
+    env        = var.env
+    owner      = var.owner
+    managed_by = "terraform"
   }
   billing_account = replace(var.billing_account_id, "billingAccounts/", "")
 }

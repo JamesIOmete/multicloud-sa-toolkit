@@ -48,12 +48,12 @@ resource "aws_sns_topic_subscription" "email" {
 module "token_workloads" {
   source = "../modules/token-workloads"
 
-  env              = var.env
-  owner            = var.owner
-  name_prefix      = local.base_name
-  additional_tags  = var.additional_tags
+  env                = var.env
+  owner              = var.owner
+  name_prefix        = local.base_name
+  additional_tags    = var.additional_tags
   log_retention_days = var.log_retention_days
-  log_kms_key_arn  = var.log_kms_key_arn
+  log_kms_key_arn    = var.log_kms_key_arn
 
   queue_visibility_timeout = var.queue_visibility_timeout
   queue_retention_seconds  = var.queue_retention_seconds
@@ -72,7 +72,7 @@ module "alarms" {
   alarm_topic_arn = local.topic_arn
   aws_region      = var.aws_region
 
-  queue_period_seconds   = var.queue_period_seconds
-  queue_depth_threshold  = var.queue_depth_threshold
-  queue_age_threshold    = var.queue_age_threshold
+  queue_period_seconds  = var.queue_period_seconds
+  queue_depth_threshold = var.queue_depth_threshold
+  queue_age_threshold   = var.queue_age_threshold
 }

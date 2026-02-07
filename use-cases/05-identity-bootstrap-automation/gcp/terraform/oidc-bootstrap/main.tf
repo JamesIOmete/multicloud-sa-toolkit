@@ -48,18 +48,18 @@ resource "google_project_iam_member" "project_editor" {
 # Add standard labels to all resources that support them
 locals {
   common_labels = {
-    toolkit     = "multicloud-sa-toolkit"
-    use_case    = "05-identity-bootstrap-automation"
-    env         = var.env
-    owner       = var.owner
-    managed_by  = "terraform"
+    toolkit    = "multicloud-sa-toolkit"
+    use_case   = "05-identity-bootstrap-automation"
+    env        = var.env
+    owner      = var.owner
+    managed_by = "terraform"
   }
 }
 
 resource "null_resource" "labels" {
   triggers = {
-    pool_id    = google_iam_workload_identity_pool.github_pool.id
-    sa_id      = google_service_account.github_actions_sa.id
+    pool_id = google_iam_workload_identity_pool.github_pool.id
+    sa_id   = google_service_account.github_actions_sa.id
   }
 
   provisioner "local-exec" {

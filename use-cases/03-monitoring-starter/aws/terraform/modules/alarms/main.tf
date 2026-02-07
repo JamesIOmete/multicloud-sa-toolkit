@@ -59,9 +59,9 @@ resource "aws_cloudwatch_dashboard" "overview" {
   dashboard_body = jsonencode({
     widgets = [
       {
-        type = "text"
-        x    = 0
-        y    = 0
+        type   = "text"
+        x      = 0
+        y      = 0
         width  = 24
         height = 2
         properties = {
@@ -69,15 +69,15 @@ resource "aws_cloudwatch_dashboard" "overview" {
         }
       },
       {
-        type = "metric"
-        x    = 0
-        y    = 2
+        type   = "metric"
+        x      = 0
+        y      = 2
         width  = 12
         height = 6
         properties = {
-          title  = "Queue depth"
+          title = "Queue depth"
           metrics = [
-            [ "AWS/SQS", "ApproximateNumberOfMessagesVisible", "QueueName", var.queue_name ]
+            ["AWS/SQS", "ApproximateNumberOfMessagesVisible", "QueueName", var.queue_name]
           ]
           period = var.queue_period_seconds
           stat   = "Average"
@@ -85,15 +85,15 @@ resource "aws_cloudwatch_dashboard" "overview" {
         }
       },
       {
-        type = "metric"
-        x    = 12
-        y    = 2
+        type   = "metric"
+        x      = 12
+        y      = 2
         width  = 12
         height = 6
         properties = {
-          title  = "Oldest message age"
+          title = "Oldest message age"
           metrics = [
-            [ "AWS/SQS", "ApproximateAgeOfOldestMessage", "QueueName", var.queue_name ]
+            ["AWS/SQS", "ApproximateAgeOfOldestMessage", "QueueName", var.queue_name]
           ]
           period = var.queue_period_seconds
           stat   = "Maximum"

@@ -62,8 +62,8 @@ resource "aws_ecs_task_definition" "sandbox" {
 
   container_definitions = jsonencode([
     {
-      name  = "token-app"
-      image = var.container_image
+      name      = "token-app"
+      image     = var.container_image
       essential = true
       portMappings = [
         {
@@ -142,8 +142,8 @@ resource "aws_ecs_service" "sandbox" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    subnets         = var.private_subnet_ids
-    security_groups = [var.security_group_id]
+    subnets          = var.private_subnet_ids
+    security_groups  = [var.security_group_id]
     assign_public_ip = false
   }
 

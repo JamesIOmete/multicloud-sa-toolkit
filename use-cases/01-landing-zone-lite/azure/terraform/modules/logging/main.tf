@@ -1,7 +1,7 @@
 locals {
-  storage_suffix        = substr(md5(var.subscription_id), 0, 6)
-  storage_base          = substr(replace(lower(var.name_prefix), "-", ""), 0, 18)
-  storage_account_name  = var.storage_account_name != "" ? var.storage_account_name : "${local.storage_base}${local.storage_suffix}"
+  storage_suffix       = substr(md5(var.subscription_id), 0, 6)
+  storage_base         = substr(replace(lower(var.name_prefix), "-", ""), 0, 18)
+  storage_account_name = var.storage_account_name != "" ? var.storage_account_name : "${local.storage_base}${local.storage_suffix}"
   activity_log_categories = [
     "Administrative",
     "Security",
@@ -21,15 +21,15 @@ resource "azurerm_resource_group" "logs" {
 }
 
 resource "azurerm_storage_account" "logs" {
-  count                    = var.enable_storage_archive ? 1 : 0
-  name                     = local.storage_account_name
-  resource_group_name      = azurerm_resource_group.logs.name
-  location                 = azurerm_resource_group.logs.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-  min_tls_version          = "TLS1_2"
+  count                           = var.enable_storage_archive ? 1 : 0
+  name                            = local.storage_account_name
+  resource_group_name             = azurerm_resource_group.logs.name
+  location                        = azurerm_resource_group.logs.location
+  account_tier                    = "Standard"
+  account_replication_type        = "LRS"
+  min_tls_version                 = "TLS1_2"
   allow_nested_items_to_be_public = false
-  tags                     = var.tags
+  tags                            = var.tags
 }
 
 resource "azurerm_storage_management_policy" "logs" {

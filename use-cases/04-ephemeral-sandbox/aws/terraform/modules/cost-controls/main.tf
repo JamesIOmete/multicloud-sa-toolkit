@@ -13,11 +13,11 @@ locals {
 resource "time_static" "budget_start" {}
 
 resource "aws_budgets_budget" "sandbox" {
-  name              = "${local.base_name}-budget"
-  budget_type       = "COST"
-  limit_amount      = var.monthly_budget_amount
-  limit_unit        = "USD"
-  time_unit         = "MONTHLY"
+  name         = "${local.base_name}-budget"
+  budget_type  = "COST"
+  limit_amount = var.monthly_budget_amount
+  limit_unit   = "USD"
+  time_unit    = "MONTHLY"
 
   time_period_start = formatdate("YYYY-MM-01_00:00", time_static.budget_start.rfc3339)
   time_period_end   = "2087-06-15_00:00"
@@ -37,11 +37,11 @@ resource "aws_budgets_budget" "sandbox" {
   }
 
   notification {
-    comparison_operator        = "GREATER_THAN"
-    notification_type          = "FORECASTED"
-    threshold                  = var.budget_threshold_percent
-    threshold_type             = "PERCENTAGE"
-    subscriber_sns_topic_arns  = [var.alert_topic_arn]
+    comparison_operator       = "GREATER_THAN"
+    notification_type         = "FORECASTED"
+    threshold                 = var.budget_threshold_percent
+    threshold_type            = "PERCENTAGE"
+    subscriber_sns_topic_arns = [var.alert_topic_arn]
   }
 
   tags = local.tags
@@ -55,9 +55,9 @@ resource "aws_ce_anomaly_monitor" "sandbox" {
 }
 
 resource "aws_ce_anomaly_subscription" "sandbox" {
-  count           = var.enable_cost_anomaly_monitor ? 1 : 0
-  name            = "${local.base_name}-anomaly-subscription"
-  frequency       = "DAILY"
+  count            = var.enable_cost_anomaly_monitor ? 1 : 0
+  name             = "${local.base_name}-anomaly-subscription"
+  frequency        = "DAILY"
   monitor_arn_list = [aws_ce_anomaly_monitor.sandbox[count.index].arn]
 
   threshold_expression {

@@ -19,6 +19,6 @@ resource "azurerm_servicebus_namespace" "token" {
 }
 
 resource "azurerm_servicebus_queue" "token" {
-  name                = local.queue_name
-  namespace_id        = azurerm_servicebus_namespace.token.id
+  name         = local.queue_name
+  namespace_id = azurerm_servicebus_namespace.token.id
 }
