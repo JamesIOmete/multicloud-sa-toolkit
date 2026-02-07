@@ -103,6 +103,7 @@ Download artifact `uc02-azure-inventory`.
 - **Key Vault list failures:** Some tenants restrict Key Vault list; the script falls back to `[]` if listing fails.
 - **Large subscriptions:** `az resource list` can be slow; consider filtering by resource group for very large estates.
 - **Resource Graph role lookup:** If Terraform hangs on the Resource Graph Reader role lookup, re-run with `-var "enable_resource_graph_role=false"` and proceed with Reader-only.
+- **Azure CLI subscription context:** The script uses `az account set` once and runs subsequent `az` calls without `--subscription`. Ensure your CLI context is set for the target subscription.
 
 ## 10. Cleanup
 
@@ -120,5 +121,5 @@ See `docs/CLEANUP.md` for repeatable run guidance and cleanup steps.
 ## 12. Validation snapshot
 
 - **Date:** 2026-02-07
-- **Result:** Ready for execution; scripts validated locally on UC01 subscription.
-- **Evidence:** N/A (requires execution against a live subscription).
+- **Result:** Terraform RBAC apply, local discovery, and GitHub Actions run succeeded.
+- **Evidence:** Local `out/inventory.json` + `out/SUMMARY.md`, workflow `uc02-azure-inventory` completed.
