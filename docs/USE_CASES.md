@@ -44,11 +44,13 @@ Sample output (sanitized):
 **Goal:** provide baseline monitoring for representative workloads (queue backlog, processing delays) and wire alerts to email.
 
 - AWS: ✅
-- Azure: 🔜
+- Azure: 🧱
 - GCP: ✅
 
 Doc entry point (AWS):
 - `use-cases/03-monitoring-starter/aws/docs/README.md`
+Doc entry point (Azure):
+- `use-cases/03-monitoring-starter/azure/docs/README.md`
 Doc entry point (GCP):
 - `use-cases/03-monitoring-starter/gcp/docs/README.md`
 
