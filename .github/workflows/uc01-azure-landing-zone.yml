@@ -60,6 +60,7 @@ jobs:
       - name: Terraform Plan
         working-directory: use-cases/01-landing-zone-lite/azure/terraform/root
         run: |
+          export ARM_SUBSCRIPTION_ID="${{ vars.AZURE_SUBSCRIPTION_ID }}"
           cat <<EOF > /tmp/uc01.auto.tfvars.json
           {
             "cost_notification_emails": ${{ inputs.notification_emails }},
