@@ -60,6 +60,10 @@ jobs:
       - name: Terraform Plan
         working-directory: use-cases/01-landing-zone-lite/azure/terraform/root
         run: |
-          terraform plan \
-            -var "cost_notification_emails=${{ inputs.notification_emails }}" \
-            -var "allowed_locations=${{ inputs.allowed_locations }}"
+          cat <<EOF > /tmp/uc01.auto.tfvars.json
+          {
+            "cost_notification_emails": ${{ inputs.notification_emails }},
+            "allowed_locations": ${{ inputs.allowed_locations }}
+          }
+          EOF
+          terraform plan -var-file=/tmp/uc01.auto.tfvars.json
