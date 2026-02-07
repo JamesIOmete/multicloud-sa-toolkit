@@ -1,0 +1,65 @@
+name: uc01-azure-landing-zone
+
+on:
+  workflow_dispatch:
+    inputs:
+      storage_account_name:
+        description: "Azure Storage account name for Terraform state"
+        required: true
+      notification_emails:
+        description: "JSON list of email addresses for budget alerts (e.g. [\"sa-team@example.com\"])"
+        required: true
+      allowed_locations:
+        description: "JSON list of allowed Azure regions (e.g. [\"eastus\"])"
+        required: false
+        default: "[\"eastus\"]"
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    env:
+      TF_IN_AUTOMATION: "1"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Azure Login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Prove identity
+        run: |
+          az account show --query '{subscription:id, tenant:tenantId, user:user.name}' -o jsonc
+          echo "ARM_* environment variables should be empty when using azure/login with OIDC:"
+          env | sort | rg '^ARM_' || true
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Write backend config
+        run: |
+          cat <<EOF > backend/azure-uc01-landing-zone.hcl
+          resource_group_name  = "mcsa-tfstate-rg"
+          storage_account_name = "${{ inputs.storage_account_name }}"
+          container_name       = "tfstate"
+          key                  = "uc01/azure/landing-zone-lite.tfstate"
+          use_azuread_auth     = true
+          EOF
+
+      - name: Terraform Init
+        working-directory: use-cases/01-landing-zone-lite/azure/terraform/root
+        run: terraform init -reconfigure -backend-config=../../../../../backend/azure-uc01-landing-zone.hcl
+
+      - name: Terraform Plan
+        working-directory: use-cases/01-landing-zone-lite/azure/terraform/root
+        run: |
+          terraform plan \
+            -var "cost_notification_emails=${{ inputs.notification_emails }}" \
+            -var "allowed_locations=${{ inputs.allowed_locations }}"

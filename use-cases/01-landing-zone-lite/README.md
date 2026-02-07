@@ -5,4 +5,5 @@ This use case delivers a minimum governance baseline before workloads land in an
 ## Cloud Implementations
 
 - **AWS:** [aws/docs/README.md](aws/docs/README.md)
+- **Azure:** [azure/docs/README.md](azure/docs/README.md)
 - **GCP:** [gcp/docs/README.md](gcp/docs/README.md)

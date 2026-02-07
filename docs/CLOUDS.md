@@ -8,8 +8,8 @@ Use this index to find per-cloud runbooks and implementation details.
 - Identity bootstrap for automation (UC05) — Terraform definitions: `use-cases/05-identity-bootstrap-automation/aws/`
 
 ## Azure
+- Landing Zone Lite baseline (UC01) — runbook: `use-cases/01-landing-zone-lite/azure/docs/README.md`
 - Identity bootstrap for automation (UC05) — Terraform definitions: `use-cases/05-identity-bootstrap-automation/azure/`
-- Future use cases will follow `use-cases/<UC>/<cloud>/docs/README.md`
 
 ## GCP
 - Landing Zone Lite baseline (UC01) — runbook: `use-cases/01-landing-zone-lite/gcp/docs/README.md`

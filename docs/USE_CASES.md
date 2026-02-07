@@ -74,11 +74,13 @@ Notes:
 **Goal:** deliver a minimum governance baseline before workloads land in an account.
 
 - AWS: ✅
-- Azure: 🔜
+- Azure: 🧱
 - GCP: ✅
 
 Doc entry point (AWS):
 - `use-cases/01-landing-zone-lite/aws/docs/README.md`
+Doc entry point (Azure):
+- `use-cases/01-landing-zone-lite/azure/docs/README.md`
 Doc entry point (GCP):
 - `use-cases/01-landing-zone-lite/gcp/docs/README.md`
 

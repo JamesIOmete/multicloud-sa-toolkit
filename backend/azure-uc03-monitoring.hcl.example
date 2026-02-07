@@ -1,0 +1,5 @@
+resource_group_name  = "mcsa-tfstate-rg"
+storage_account_name = "REPLACE_ME"
+container_name       = "tfstate"
+key                  = "uc03/azure/monitoring-starter.tfstate"
+use_azuread_auth     = true
