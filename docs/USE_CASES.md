@@ -22,11 +22,13 @@ Notes:
 **Goal:** produce portable artifacts (`inventory.json`, `SUMMARY.md`) that help with migrations, reviews, incident context, and onboarding.
 
 - AWS: ✅
-- Azure: 🔜
+- Azure: 🧱
 - GCP: ✅
 
 Doc entry point (AWS):
 - `use-cases/02-inventory-auto-doc/aws/docs/README.md`
+Doc entry point (Azure):
+- `use-cases/02-inventory-auto-doc/azure/docs/README.md`
 Doc entry point (GCP):
 - `use-cases/02-inventory-auto-doc/gcp/docs/README.md`
 
