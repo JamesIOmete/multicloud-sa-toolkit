@@ -89,11 +89,14 @@ aws resource-explorer-2 search --query-string "mcsa-" \
   ```
 - If the log bucket deletion fails with "BucketNotEmpty", delete versioned objects and delete markers, then retry destroy.
   ```bash
-  aws s3 rm s3://mcsa-uc01-logs-<env>-<ACCOUNT_ID> --recursive
-  aws s3api list-object-versions --bucket mcsa-uc01-logs-<env>-<ACCOUNT_ID> \
+  # Replace with your actual log bucket name (example pattern: mcsa-uc01-logs-<env>-<ACCOUNT_ID>)
+  LOG_BUCKET="mcsa-uc01-logs-<env>-<ACCOUNT_ID>"
+
+  aws s3 rm "s3://${LOG_BUCKET}" --recursive
+  aws s3api list-object-versions --bucket "${LOG_BUCKET}" \
     --query '{Objects: (Versions[].{Key:Key,VersionId:VersionId} + DeleteMarkers[].{Key:Key,VersionId:VersionId})}' \
     --output json > /tmp/mcsa-uc01-log-delete.json
-  aws s3api delete-objects --bucket mcsa-uc01-logs-<env>-<ACCOUNT_ID> \
+  aws s3api delete-objects --bucket "${LOG_BUCKET}" \
     --delete file:///tmp/mcsa-uc01-log-delete.json
   ```
 
