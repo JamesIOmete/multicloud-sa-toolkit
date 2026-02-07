@@ -111,6 +111,8 @@ terraform apply
 - **Namespace uniqueness:** Service Bus namespace names are globally unique; this stack appends a random suffix to avoid collisions.
 - **Service Bus SKU:** `Basic` is lowest cost but has fewer features. Switch to `Standard` if you need more capabilities.
 - **Alerting without workload:** Set `enable_workload=false` and provide `namespace_resource_id` and `queue_name` to target an existing queue.
+- **Action Group email:** Azure requires you to confirm the Action Group email before alerts are delivered.
+- **Metric scope:** Alerts target the namespace metrics with the `EntityName` dimension for the queue.
 
 ## 9. Cleanup
 
@@ -141,5 +143,5 @@ The workflow:
 ## 12. Validation snapshot
 
 - **Date:** 2026-02-07
-- **Result:** Not yet run in this repo; expected to plan successfully once backend config and notification emails are provided.
-- **Evidence:** N/A
+- **Result:** Local apply and GitHub Actions plan succeeded.
+- **Evidence:** Action Group confirmed, alerts listed via `az monitor metrics alert list`, workflow `uc03-azure-monitoring` completed.
