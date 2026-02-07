@@ -298,7 +298,15 @@ At that point Codex CLI can safely run Terraform-based steps for Azure UC01–UC
 
 ---
 
-## 8) Cleanup
+## 8) Validation snapshot
+
+- **Date:** 2026-02-06
+- **Result:** `azure-oidc-smoke` workflow completed successfully.
+- **Evidence:** GitHub Actions run `azure-oidc-smoke` (run ID `21734918769`).
+
+---
+
+## 9) Cleanup
 
 When you no longer need GitHub Actions OIDC access:
 

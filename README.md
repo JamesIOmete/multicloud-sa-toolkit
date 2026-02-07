@@ -26,7 +26,7 @@ Focus: identity bootstrap for automation, environment discovery, monitoring base
 
 - **UC05 — Identity bootstrap for automation (GitHub Actions OIDC → Cloud)**
   - AWS ✅ implemented + validated
-  - Azure 🧱 implemented (validation pending)
+  - Azure ✅ implemented + validated
   - GCP ✅ implemented + validated
 
 See: `docs/USE_CASES.md`

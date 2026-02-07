@@ -9,7 +9,7 @@ Status legend:
 **Goal:** enable CI to run Terraform without long-lived cloud keys.
 
 - AWS: ✅
-- Azure: 🧱
+- Azure: ✅
 - GCP: ✅
 
 Entry point:
