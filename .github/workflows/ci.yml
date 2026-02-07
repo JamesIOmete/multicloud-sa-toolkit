@@ -13,8 +13,5 @@ jobs:
 
       - uses: hashicorp/setup-terraform@v3
 
-      - name: Terraform fmt (check)
-        run: terraform fmt -check -recursive
-
-      - name: Terraform validate
-        run: ./scripts/ci_validate.sh
+      - name: Terraform fmt/validate (repo standard)
+        run: ./tools/ci/validate.sh
