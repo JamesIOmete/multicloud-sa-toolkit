@@ -62,11 +62,13 @@ Notes:
 **Goal:** deliver a short-lived application sandbox (VPC, Fargate service, budget guardrails, metadata store) that can be spun up and torn down quickly.
 
 - AWS: ✅
-- Azure: 🔜
+- Azure: 🧱
 - GCP: ✅
 
 Doc entry point (AWS):
 - `use-cases/04-ephemeral-sandbox/aws/docs/README.md`
+Doc entry point (Azure):
+- `use-cases/04-ephemeral-sandbox/azure/docs/README.md`
 Doc entry point (GCP):
 - `use-cases/04-ephemeral-sandbox/gcp/docs/README.md`
 

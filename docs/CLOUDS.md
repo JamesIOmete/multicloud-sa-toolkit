@@ -11,6 +11,7 @@ Use this index to find per-cloud runbooks and implementation details.
 - Landing Zone Lite baseline (UC01) — runbook: `use-cases/01-landing-zone-lite/azure/docs/README.md`
 - Environment inventory + auto-documentation (UC02) — runbook: `use-cases/02-inventory-auto-doc/azure/docs/README.md`
 - Monitoring starter (UC03) — runbook: `use-cases/03-monitoring-starter/azure/docs/README.md`
+- Ephemeral sandbox (UC04) — runbook: `use-cases/04-ephemeral-sandbox/azure/docs/README.md`
 - Identity bootstrap for automation (UC05) — Terraform definitions: `use-cases/05-identity-bootstrap-automation/azure/`
 
 ## GCP
