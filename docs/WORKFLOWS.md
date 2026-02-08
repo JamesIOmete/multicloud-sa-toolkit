@@ -25,10 +25,11 @@ ls -la .github/workflows
 
 ### Run by workflow file path (most reliable)
 ```bash
-gh workflow run .github/workflows/uc05-aws-smoke.yml
-gh workflow run .github/workflows/azure-oidc-smoke.yml
-gh workflow run .github/workflows/gcp-oidc-smoke.yml
-gh workflow run .github/workflows/uc02-aws-inventory.yml
+  gh workflow run .github/workflows/uc05-aws-smoke.yml
+  gh workflow run .github/workflows/azure-oidc-smoke.yml
+  gh workflow run .github/workflows/gcp-oidc-smoke.yml
+  gh workflow run .github/workflows/uc02-aws-inventory.yml
+  gh workflow run .github/workflows/uc02-gcp-inventory.yml
 ```
 
 ### Run by workflow name (handy)

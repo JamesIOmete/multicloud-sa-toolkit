@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/multicloud-sa-toolkit/inventory.schema.json",
+  "title": "Multi-Cloud SA Toolkit Normalized Inventory (UC02)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "meta",
+    "scope",
+    "counts"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "description": "Normalized inventory schema version."
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "generated_at",
+        "toolkit_git_sha"
+      ],
+      "properties": {
+        "generated_at": {
+          "type": "string",
+          "description": "RFC3339 timestamp when inventory was generated."
+        },
+        "toolkit_git_sha": {
+          "type": "string",
+          "description": "Git SHA from CI (GITHUB_SHA) or local checkout."
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cloud"
+      ],
+      "properties": {
+        "cloud": {
+          "type": "string",
+          "enum": ["aws", "azure", "gcp"]
+        },
+        "region": { "type": "string" },
+        "regions": { "type": "array", "items": { "type": "string" } },
+        "account_id": { "type": "string" },
+        "subscription_id": { "type": "string" },
+        "tenant_id": { "type": "string" },
+        "project_id": { "type": "string" }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "network",
+        "compute",
+        "iam"
+      ],
+      "properties": {
+        "network": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "vpcs": { "type": "integer", "minimum": 0 },
+            "vnets": { "type": "integer", "minimum": 0 },
+            "subnets": { "type": "integer", "minimum": 0 },
+            "security_groups": { "type": "integer", "minimum": 0 },
+            "nsgs": { "type": "integer", "minimum": 0 },
+            "public_ips": { "type": "integer", "minimum": 0 },
+            "nat_gateways": { "type": "integer", "minimum": 0 },
+            "firewall_rules": { "type": "integer", "minimum": 0 },
+            "vpc_endpoints": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "compute": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "instances": { "type": "integer", "minimum": 0 },
+            "virtual_machines": { "type": "integer", "minimum": 0 },
+            "load_balancers": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "iam": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "service_accounts": { "type": "integer", "minimum": 0 },
+            "discovery_role_name": { "type": "string" },
+            "attached_policies": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Optional cloud-specific fields (non-breaking)."
+    }
+  }
+}
+

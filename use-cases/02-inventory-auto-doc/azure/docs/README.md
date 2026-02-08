@@ -68,6 +68,7 @@ export OUT_DIR="out"
 Artifacts:
 - `out/inventory.json`
 - `out/SUMMARY.md`
+- `out/artifacts/` (normalized bundle: metadata, summary, scorecard, diagram)
 
 ## 5. Run discovery (GitHub Actions)
 

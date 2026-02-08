@@ -13,6 +13,7 @@ This document provides the runbook for generating an inventory of a GCP project.
 The `discover.sh` script uses the `gcloud` CLI to scan a GCP project and produce two artifacts:
 - `inventory.json`: A detailed, machine-readable inventory of resources in JSON format.
 - `SUMMARY.md`: A high-level, human-readable summary of the key resources found.
+- `artifacts/`: A normalized bundle (metadata, normalized inventory, scorecard, diagram) for cross-cloud consistency.
 
 This is useful for:
 - Gaining quick context on a project.
@@ -43,11 +44,16 @@ The script can be run locally or from a GitHub Actions workflow.
 
     ./discover.sh
     ```
-    The output files (`inventory.json`, `SUMMARY.md`) will be created in the current directory.
+    The output files (`inventory.json`, `SUMMARY.md`, and `artifacts/`) will be created in the current directory.
 
 ### GitHub Actions
 
-A GitHub Actions workflow can be configured to run this script and save the artifacts. (Workflow definition is not included in this use case).
+Workflow: `.github/workflows/uc02-gcp-inventory.yml`
+
+Repo variables expected by the workflow:
+- `GCP_PROJECT_ID`
+- `GCP_WIF_PROVIDER` (full provider resource name)
+- `GCP_SA_EMAIL`
 
 ## 4. Sample Output
 

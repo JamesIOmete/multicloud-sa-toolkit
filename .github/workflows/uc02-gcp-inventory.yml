@@ -1,0 +1,41 @@
+name: uc02-gcp-inventory
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    env:
+      GCP_REGION: us-central1
+      OUT_DIR: out
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Authenticate to GCP (OIDC)
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SA_EMAIL }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Generate inventory
+        env:
+          GCP_PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
+        run: bash use-cases/02-inventory-auto-doc/gcp/scripts/discover.sh "$GCP_PROJECT_ID" "$GCP_REGION" "$OUT_DIR"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: uc02-gcp-inventory
+          path: |
+            out/inventory.json
+            out/SUMMARY.md
+            out/artifacts/**
+

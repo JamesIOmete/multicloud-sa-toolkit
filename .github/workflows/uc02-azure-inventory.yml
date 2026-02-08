@@ -40,3 +40,4 @@ jobs:
           path: |
             out/inventory.json
             out/SUMMARY.md
+            out/artifacts/**

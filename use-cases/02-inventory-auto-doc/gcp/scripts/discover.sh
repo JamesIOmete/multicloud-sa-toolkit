@@ -117,3 +117,14 @@ EOF
 echo "SUMMARY.md created."
 echo "---"
 echo "Done."
+
+# Optional: generate a normalized artifact bundle (stable cross-cloud outputs).
+if command -v python3 >/dev/null 2>&1; then
+  python3 tools/artifacts/uc02_bundle.py \
+    --cloud gcp \
+    --raw-inventory "${OUTPUT_DIR}/inventory.json" \
+    --out-dir "${OUTPUT_DIR}/artifacts" >/dev/null
+  echo "Wrote: ${OUTPUT_DIR}/artifacts/{metadata.json,inventory.json,SUMMARY.md,SCORECARD.md,diagram.mmd}"
+else
+  echo "NOTE: python3 not found; skipping artifact bundle generation." >&2
+fi

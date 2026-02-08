@@ -12,6 +12,7 @@ This use case generates an AWS environment inventory (`inventory.json`) and a su
 3. Workflow runs discovery and writes outputs:
    - `out/inventory.json`
    - `out/SUMMARY.md`
+   - `out/artifacts/` (normalized bundle: metadata, summary, scorecard, diagram)
 4. Workflow uploads outputs as a GitHub Actions artifact.
 
 ---

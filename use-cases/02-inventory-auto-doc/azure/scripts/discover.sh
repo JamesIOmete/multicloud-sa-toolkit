@@ -131,3 +131,14 @@ EOF2
 
 echo "Wrote: $OUT_DIR/inventory.json"
 echo "Wrote: $OUT_DIR/SUMMARY.md"
+
+# Optional: generate a normalized artifact bundle (stable cross-cloud outputs).
+if command -v python3 >/dev/null 2>&1; then
+  python3 tools/artifacts/uc02_bundle.py \
+    --cloud azure \
+    --raw-inventory "$OUT_DIR/inventory.json" \
+    --out-dir "$OUT_DIR/artifacts" >/dev/null
+  echo "Wrote: $OUT_DIR/artifacts/{metadata.json,inventory.json,SUMMARY.md,SCORECARD.md,diagram.mmd}"
+else
+  echo "NOTE: python3 not found; skipping artifact bundle generation." >&2
+fi

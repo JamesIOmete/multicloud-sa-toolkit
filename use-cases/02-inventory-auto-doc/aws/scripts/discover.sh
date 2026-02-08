@@ -123,3 +123,14 @@ EOF2
 
 echo "Wrote: $INV_JSON"
 echo "Wrote: $SUM_MD"
+
+# Optional: generate a normalized artifact bundle (stable cross-cloud outputs).
+if command -v python3 >/dev/null 2>&1; then
+  python3 tools/artifacts/uc02_bundle.py \
+    --cloud aws \
+    --raw-inventory "$INV_JSON" \
+    --out-dir "$OUT_DIR/artifacts" >/dev/null
+  echo "Wrote: $OUT_DIR/artifacts/{metadata.json,inventory.json,SUMMARY.md,SCORECARD.md,diagram.mmd}"
+else
+  echo "NOTE: python3 not found; skipping artifact bundle generation." >&2
+fi

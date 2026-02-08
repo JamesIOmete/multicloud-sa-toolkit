@@ -15,7 +15,7 @@ Examples use **us-west-2**; change regions as needed.
 - Optional but handy:
   - `jq` (inspect JSON outputs)
   - `make` (if you use the repo Makefile)
-  - `python3` (for output sanitization helpers, if/when added)
+  - `python3` (required for normalized artifact bundle generation in UC02)
 
 Quick checks:
 ```bash
