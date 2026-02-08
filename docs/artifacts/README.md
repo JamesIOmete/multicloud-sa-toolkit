@@ -19,9 +19,19 @@ Raw discovery outputs remain at:
 - `out/inventory.json`
 - `out/SUMMARY.md`
 
+## Diff Two Runs
+
+If you have two normalized inventories from different runs, you can generate a quick diff:
+
+```bash
+python3 tools/artifacts/uc02_diff.py \
+  --old /path/to/old/out/artifacts/inventory.json \
+  --new /path/to/new/out/artifacts/inventory.json \
+  --out SUMMARY_DIFF.md
+```
+
 ## Schema
 
 Normalized inventories follow: `docs/artifacts/inventory.schema.json`
 
 The schema is intentionally conservative. It provides stable top-level fields and summarized resource counts while allowing cloud-specific extensions under `extensions`.
-

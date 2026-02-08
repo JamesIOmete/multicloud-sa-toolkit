@@ -127,6 +127,17 @@ Inspect the JSON:
 jq '.' /tmp/uc02/**/inventory.json | head
 ```
 
+### Diff two UC02 runs (normalized bundle)
+
+If you downloaded two different UC02 runs, you can diff the normalized inventories:
+
+```bash
+python3 tools/artifacts/uc02_diff.py \
+  --old /tmp/uc02-old/**/out/artifacts/inventory.json \
+  --new /tmp/uc02-new/**/out/artifacts/inventory.json \
+  --out /tmp/uc02/SUMMARY_DIFF.md
+```
+
 ---
 
 ## Common errors and fixes
