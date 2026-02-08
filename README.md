@@ -36,6 +36,13 @@ Lessons learned (public-safe): `docs/LESSONS_LEARNED_GCP.md`
 
 Cloud navigation index: `docs/CLOUDS.md`
 
+## Artifact bundles (new)
+UC02 can generate a portable artifact bundle under `out/artifacts/`:
+- normalized `inventory.json` (stable schema across clouds)
+- `SUMMARY.md`, `SCORECARD.md`, and `diagram.mmd` (Mermaid)
+
+Docs: `docs/artifacts/README.md`
+
 ## Repo layout
 - `docs/` — prerequisites, roadmap, decisions, and use-case index
 - `use-cases/` — per-use-case implementations + per-cloud docs + sample outputs
