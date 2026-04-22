@@ -62,5 +62,6 @@ Docs: `docs/artifacts/README.md`
 ## Related projects
 
 - **[tf-plan-ai-reviewer](https://github.com/JamesIOmete/tf-plan-ai-reviewer)** — AI-powered Terraform plan reviewer built on this toolkit's patterns. Runs `terraform plan -json` through an LLM and posts a PASS/WARN/BLOCK verdict as a GitHub PR comment. The fixture data for that project is drawn from this toolkit's UC06 plan output.
+- **[multicloud-estate-briefing](https://github.com/JamesIOmete/multicloud-estate-briefing)** — AI-powered estate briefing tool that ingests UC02 `inventory.json` artifacts from this toolkit (AWS, Azure, GCP) and produces a natural-language summary of what's running, anomaly callouts, security observations, and recommended next actions.
 
 License: MIT
