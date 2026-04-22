@@ -59,4 +59,8 @@ Docs: `docs/artifacts/README.md`
 - CI/CD uses GitHub OIDC (no long-lived cloud keys stored in GitHub).
 - Local Terraform applies use a dedicated cloud profile only when needed.
 
+## Related projects
+
+- **[tf-plan-ai-reviewer](https://github.com/JamesIOmete/tf-plan-ai-reviewer)** — AI-powered Terraform plan reviewer built on this toolkit's patterns. Runs `terraform plan -json` through an LLM and posts a PASS/WARN/BLOCK verdict as a GitHub PR comment. The fixture data for that project is drawn from this toolkit's UC06 plan output.
+
 License: MIT
