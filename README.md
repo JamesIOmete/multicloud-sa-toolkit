@@ -63,5 +63,7 @@ Docs: `docs/artifacts/README.md`
 
 - **[tf-plan-ai-reviewer](https://github.com/JamesIOmete/tf-plan-ai-reviewer)** — AI-powered Terraform plan reviewer built on this toolkit's patterns. Runs `terraform plan -json` through an LLM and posts a PASS/WARN/BLOCK verdict as a GitHub PR comment. The fixture data for that project is drawn from this toolkit's UC06 plan output.
 - **[multicloud-estate-briefing](https://github.com/JamesIOmete/multicloud-estate-briefing)** — AI-powered estate briefing tool that ingests UC02 `inventory.json` artifacts from this toolkit (AWS, Azure, GCP) and produces a natural-language summary of what's running, anomaly callouts, security observations, and recommended next actions.
+- **[aws-iot-edge-reference](https://github.com/JamesIOmete/aws-iot-edge-reference)** — End-to-end AWS IoT reference implementation for cold chain monitoring. Uses the same Terraform discipline and deploy-and-teardown approach as this toolkit — X.509 device identity, MQTT/TLS ingestion, Lambda processor, DynamoDB, and CloudWatch observability.
+- **[iotctl](https://github.com/JamesIOmete/iotctl)** — Operator CLI for the `aws-iot-edge-reference` stack. Queries device status, telemetry history, and excursion events directly from AWS IoT Core and DynamoDB. Built in Go using AWS SDK v2 and Cobra.
 
 License: MIT
